@@ -62,7 +62,8 @@
     <div class="wrapper">
       <div class="content" role="main">
         <h1 class="title">プロフィール入力</h1>
-        <form action="/submit_profile" method="post">
+     <form id="profileForm" action="/submit_profile" method="post">
+
           <label for="name">名前:</label>
           <input type="text" id="name" name="name" required />
 
@@ -71,7 +72,8 @@
 
           <label for="phone">携帯番号:</label>
           <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" placeholder="10桁の数字" required />
-        <button type="submit" onclick="location.href='veg.html'">次へ</button>
+          <button type="submit" onclick="submitFormAndNavigate()">次へ</button>
+
   
         </form>
       </div>
