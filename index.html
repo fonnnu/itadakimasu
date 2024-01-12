@@ -1,67 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- 
-      This is an HTML comment
-      You can write text in a comment and the content won't be visible in the page
-    -->
-
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" href="https://glitch.com/favicon.ico" />
+    <title>プロフィール入力</title>
+    <style>
+      body {
+        background-color: #ffffff; /* 背景色を白に設定 */
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif; /* フォント指定（例：Arial） */
+      }
 
-    <!--
-      This is the page head - it contains info the browser uses
-      Like the title, which appears on the browser tab but not inside the page
-      Further down you'll see the content that displays in the page
-    -->
-    <title>Itadakimasu</title>
+      .wrapper {
+        max-width: 600px;
+        margin: 0 auto;
+      }
 
-    <!-- The website stylesheet -->
-    <link rel="stylesheet" href="/style.css" />
+      .content {
+        padding: 20px;
+        background-color: #ffffff; /* 背景色を白に設定 */
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* ボックスシャドウを追加 */
+      }
 
-    <!-- The website JavaScript file -->
+      .title {
+        color: #333333; /* タイトルの文字色を変更 */
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+      }
+
+      label {
+        margin-bottom: 8px;
+        color: #555555; /* ラベルの文字色を変更 */
+      }
+
+      input {
+        padding: 10px;
+        margin-bottom: 16px;
+        border: 1px solid #aaaaaa; /* ボーダー色を変更 */
+        border-radius: 4px;
+        font-size: 14px; /* フォントサイズを変更 */
+      }
+
+      button {
+        padding: 12px;
+        background-color: #007bff; /* ボタンの背景色を変更 */
+        color: #ffffff; /* ボタンの文字色を変更 */
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px; /* フォントサイズを変更 */
+      }
+    </style>
     <script src="/script.js" defer></script>
   </head>
   <body>
-    <!--
-      The body includes the content you see in the page
-      Each element is defined using tags, like this <div></div>
-      The attributes like class="wrapper" let us style elements in the CSS
-    -->
     <div class="wrapper">
       <div class="content" role="main">
-        <h1 class="title">登録画面</h1>
-        <div class="info_vege">
-          <h2>【1】 作物情報</h2>
-          <p>
-            This is the Glitch <strong>Hello Website</strong> project. You can
-            use it to build your own site. Check out the code in the editor and open
-            the <span class="fileopener" data-file="TODO.md" data-line="0"
-              >TODO</span> for next steps!
-          </p>
-          
-          <!--  🚧 TODO: ADD BUTTON HERE -->
+        <h1 class="title">プロフィール入力</h1>
+        <form action="/submit_profile" method="post">
+          <label for="name">名前:</label>
+          <input type="text" id="name" name="name" required />
 
-          <!-- Once you've added the button from TODO.md, click it in the page -->
-          <!-- Check out the function in script.js to see how it works -->
-        </div>
+          <label for="birthdate">生年月日:</label>
+          <input type="date" id="birthdate" name="birthdate" required />
+
+          <label for="phone">携帯番号:</label>
+          <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" placeholder="10桁の数字" required />
+          <a href="veg.html" class="veg-link"><button type="submit">次へ</button></a>
+          
+        </form>
       </div>
     </div>
-    <!-- The footer holds our remix button — you can keep or delete it ✂ -->
     <footer class="footer">
       <div class="links"></div>
-      <a
-        class="btn--remix"
-        target="_top"
-        href="https://glitch.com/edit/#!/remix/glitch-hello-website"
-      >
-        <img
-          src="https://cdn.glitch.com/605e2a51-d45f-4d87-a285-9410ad350515%2FLogo_Color.svg?v=1618199565140"
-          alt=""
-        />
-        Remix on Glitch
-      </a>
     </footer>
   </body>
 </html>
