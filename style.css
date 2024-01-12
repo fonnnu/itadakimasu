@@ -167,7 +167,7 @@ input {
 
 /* Subheading */
 h2 {
-  color: #2800FF;
+  color: #000000;
 }
 
 /* Interactive image */
@@ -192,4 +192,8 @@ h2 {
 }
 .fileopener:hover {
   border-bottom:3px solid var(--color-secondary);
+}
+
+.info_vege{
+  
 }
