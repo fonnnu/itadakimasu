@@ -1,29 +1,71 @@
 <!DOCTYPE html>
-<html lang="ja">
-  <head>
-    <!-- 
-      This is an HTML comment
-      You can write text in a comment and the content won't be visible in the page
-    -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>写真ギャラリー</title>
+  <style>
+    /* スタイルは適宜調整してください */
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+    }
 
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" href="https://glitch.com/favicon.ico" />
+    .photo {
+      margin: 10px;
+      cursor: pointer;
+    }
 
-    <!--
-      This is the page head - it contains info the browser uses
-      Like the title, which appears on the browser tab but not inside the page
-      Further down you'll see the content that displays in the page
-    -->
-    <title>Animals</title>
+    .photo img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
 
-    <!-- The website stylesheet -->
-    <link rel="stylesheet" href="/style.css" />
+    #pageC {
+      display: none;
+    }
+  </style>
+</head>
+<body>
 
-    <!-- The website JavaScript file -->
-    <script src="/script.js" defer></script>
-  </head>
-  <body>
-    <p>aaaaaaaaa</p>
-  </body>
+<!-- 写真ギャラリー -->
+<div class="gallery" id="gallery">
+  <div class="photo" onclick="showPageC('photo1', 'Nature')">
+    <img src="photo1.jpg" alt="Nature">
+  </div>
+  <div class="photo" onclick="showPageC('photo2', 'City')">
+    <img src="photo2.jpg" alt="City">
+  </div>
+  <!-- 他の写真も同様に追加 -->
+
+</div>
+
+<!-- ページC -->
+<div id="pageC">
+  <h2 id="selectedPhotoTitle"></h2>
+  <p id="selectedPhotoTag"></p>
+</div>
+
+<script>
+  function showPageC(photoId, tag) {
+    // ページCの要素を取得
+    var pageC = document.getElementById('pageC');
+
+    // 選択した写真のタイトルとタグを取得し、ページCに反映
+    var selectedPhotoTitle = document.getElementById('selectedPhotoTitle');
+    var selectedPhotoTag = document.getElementById('selectedPhotoTag');
+    
+    selectedPhotoTitle.textContent = "選択した写真: " + photoId;
+    selectedPhotoTag.textContent = "タグ: " + tag;
+
+    // ページCを表示
+    pageC.style.display = 'block';
+
+    // 他の処理があればここに追加
+  }
+</script>
+
+</body>
 </html>

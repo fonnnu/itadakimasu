@@ -1,41 +1,68 @@
 <!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>プロフィール入力</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 50px;
-        }
+      body {
+        background-color: #ffffff; /* 背景色を白に設定 */
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif; /* フォント指定（例：Arial） */
+      }
 
-        form {
-            display: inline-block;
-            text-align: left;
-        }
+      .wrapper {
+        max-width: 600px;
+        margin: 0 auto;
+      }
 
-        label {
-            display: block;
-            margin-bottom: 10px;
-        }
+      .content {
+        padding: 20px;
+        background-color: #ffffff; /* 背景色を白に設定 */
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* ボックスシャドウを追加 */
+      }
 
-        input {
-            width: 200px;
-            padding: 5px;
-            margin-bottom: 10px;
-        }
+      .title {
+        color: #333333; /* タイトルの文字色を変更 */
+      }
 
-        button {
-            padding: 10px;
-            font-size: 16px;
-        }
+      form {
+        display: flex;
+        flex-direction: column;
+      }
+
+      label {
+        margin-bottom: 8px;
+        color: #555555; /* ラベルの文字色を変更 */
+      }
+
+      input {
+        padding: 10px;
+        margin-bottom: 16px;
+        border: 1px solid #aaaaaa; /* ボーダー色を変更 */
+        border-radius: 4px;
+        font-size: 14px; /* フォントサイズを変更 */
+      }
+
+      button {
+        padding: 12px;
+        background-color: #007bff; /* ボタンの背景色を変更 */
+        color: #ffffff; /* ボタンの文字色を変更 */
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px; /* フォントサイズを変更 */
+      }
     </style>
-</head>
-<body>
-
-<form id="profileForm">
+    <script src="/script.js" defer></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="content" role="main">
+        <h1 class="title">プロフィール入力</h1>
+    <form id="profileForm" onsubmit="submitFormAndNavigate(); return false;">
     <label for="name">名前:</label>
     <input type="text" id="name" name="name" required>
 
@@ -47,22 +74,26 @@
     
     <br>
 
-    <button type="button" onclick="nextPage()">次へ</button>
+    <button type="submit">登録</button>
 </form>
 
 <script>
-    function nextPage() {
+    function submitFormAndNavigate() {
         // フォームの値を取得
         var name = document.getElementById('name').value;
         var birthdate = document.getElementById('birthdate').value;
         var phone = document.getElementById('phone').value;
 
         // フォームの値を次のページに渡して遷移
-        window.location.href = '次のページのURL?name=' + encodeURIComponent(name) +
+        window.location.href = 'veg.html?name=' + encodeURIComponent(name) +
                                '&birthdate=' + encodeURIComponent(birthdate) +
                                '&phone=' + encodeURIComponent(phone);
     }
 </script>
-
-</body>
+      </div>
+    </div>
+    <footer class="footer">
+      <div class="links"></div>
+    </footer>
+  </body>
 </html>
