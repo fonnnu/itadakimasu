@@ -80,27 +80,22 @@
 
     // Nextボタンを表示
     document.getElementById('nextButton').style.display = 'block';
-  
-    // 他の処理があればここに追加
-     function showPageC(category) {
-    // ここにページ遷移のコードを追加してください
-    window.location.href = 'occup.html';
-    // この例では、単にアラートを表示します
-   document.getElementById('nextButton').addEventListener('click', function() {
-    // ここにページ遷移のコードを追加してください
-    window.location.href = 'occup.html';
-
-  });
   }
+
+  function showNextPage() {
+    // ここにページ遷移のコードを追加してください
+    window.location.href = 'occup.html';
   }
 
   function showNextPhoto() {
     // ここに次の写真を表示する処理を追加
     // 例えば、別の写真の表示や処理を行う
   }
-   // Add a function to handle page transition (replace 'yourPageTransitionFunction' with your actual function)
-    yourPageTransitionFunction("occup.html"); 
+
+  // Nextボタンがクリックされたときにページ遷移するようにイベントリスナーを追加
+  document.getElementById('nextButton').addEventListener('click', showNextPage);
 </script>
+
 
 </body>
 </html>
