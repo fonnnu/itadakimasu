@@ -80,8 +80,18 @@
 
     // Nextボタンを表示
     document.getElementById('nextButton').style.display = 'block';
-
+  
     // 他の処理があればここに追加
+     function showPageC(category) {
+    // ここにページ遷移のコードを追加してください
+    window.location.href = 'occup.html';
+    // この例では、単にアラートを表示します
+   document.getElementById('nextButton').addEventListener('click', function() {
+    // ここにページ遷移のコードを追加してください
+    window.location.href = 'occup.html';
+
+  });
+  }
   }
 
   function showNextPhoto() {
