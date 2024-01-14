@@ -23,18 +23,22 @@
     .content {
       padding: 20px;
       text-align: center;
+      position: relative;
+    }
+
+    .back-veg-link {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      text-align: left;
+      text-decoration: none;
+      color: #007bff;
     }
 
     .title {
       color: #333333;
       margin-bottom: 10px;
       font-size: 24px;
-    }
-
-    .back-veg-link {
-      display: block;
-      margin-bottom: 20px; /* Adjust margin as needed */
-      text-align: left;
     }
 
     .gallery {
@@ -87,9 +91,9 @@
   <script src="/script.js" defer></script>
 </head>
 <body>
-  <a href="veg.html" class="back-veg-link"><h2>戻る</h2></a>
   <div class="wrapper">
     <div class="content">
+      <a href="veg.html" class="back-veg-link"><h2>戻る</h2></a>
       <h2 class="title">業務種類は何ですか</h2>
       <p>写真を押して選んでください。</p>
       <!-- 写真ギャラリー -->
@@ -98,7 +102,18 @@
           <img src="https://cdn.glitch.global/322af513-8604-426e-b160-2ec3165e8b76/20230111_kuwakariwomen_02_1.png?v=1705223874569" alt="hamishiri">
           <p>葉みしり</p>
         </div>
-        <!-- 他の写真要素も続く -->
+        <div class="photo" onclick="showPageC('袋詰め')">
+          <img src="https://cdn.glitch.global/322af513-8604-426e-b160-2ec3165e8b76/20220519_syukkajunbi_05.png?v=1705223868742" alt="hukurodume">
+          <p>袋詰め</p>
+        </div>
+        <div class="photo" onclick="showPageC('種まき')">
+          <img src="https://cdn.glitch.global/322af513-8604-426e-b160-2ec3165e8b76/20220515_2_taneuerukids_02.png?v=1705223870176" alt="tanemaki">
+          <p>種まき</p>
+        </div>
+        <div class="photo" onclick="showPageC('収穫')">
+          <img src="https://cdn.glitch.global/322af513-8604-426e-b160-2ec3165e8b76/20220516_1_syukakuman_01.png?v=1705223872345" alt="Syukaku">
+          <p>収穫</p>
+        </div>
       </div>
 
       <!-- ページC -->
