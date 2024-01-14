@@ -58,7 +58,7 @@
   #pageC {
     text-align: center;
     display: none;
-    margin-top: 20px;
+    margin-top: 10px;
   }
 
    #nextButton {
@@ -70,7 +70,10 @@
       cursor: pointer;
       font-size: 25px;
       display: none;
-      margin-top: 10px; /* Add margin to the top */
+      margin-top: 10px;
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
     }
 </style>
 
@@ -79,7 +82,7 @@
 <body>
   <div class="wrapper">
     <div class="content">
-      <h1 class="title">どの野菜を<br>育てていますか。</h1>
+      <h2 class="title">どの野菜を育てていますか。</h2>
       <p>写真を押して選んでください。</p>
       <!-- 写真ギャラリー -->
       <div class="gallery" id="gallery">
@@ -129,6 +132,6 @@
 
     document.getElementById('nextButton').addEventListener('click', showNextPage);
   </script>
-    
+  
 </body>
 </html>
