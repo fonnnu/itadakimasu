@@ -1,63 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>プロフィール入力</title>
-    <style>
-      body {
-        background-color: #ffffff; /* 背景色を白に設定 */
-        margin: 0;
-        padding: 0;
-        font-family: Arial, sans-serif; /* フォント指定（例：Arial） */
-      }
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>プロフィール入力</title>
+  <style>
+    body {
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
 
-      .wrapper {
-        max-width: 600px;
-        margin: 0 auto;
-      }
+    .wrapper {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 20px;
+    }
 
-      .content {
-        padding: 20px;
-        background-color: #ffffff; /* 背景色を白に設定 */
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* ボックスシャドウを追加 */
-      }
+    .content {
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+    }
 
-      .title {
-        color: #333333; /* タイトルの文字色を変更 */
-      }
+    .title {
+      color: #333333;
+      text-align: center;
+    }
 
-      form {
-        display: flex;
-        flex-direction: column;
-      }
+    form {
+      display: flex;
+      flex-direction: column;
+    }
 
-      label {
-        margin-bottom: 8px;
-        color: #555555; /* ラベルの文字色を変更 */
-      }
+    label {
+      margin-bottom: 8px;
+      color: #555555;
+    }
 
-      input {
-        padding: 10px;
-        margin-bottom: 16px;
-        border: 1px solid #aaaaaa; /* ボーダー色を変更 */
-        border-radius: 4px;
-        font-size: 14px; /* フォントサイズを変更 */
-      }
+    input {
+      padding: 10px;
+      margin-bottom: 16px;
+      border: 1px solid #aaaaaa;
+      border-radius: 4px;
+      font-size: 14px;
+    }
 
-      button {
-        padding: 12px;
-        background-color: #007bff; /* ボタンの背景色を変更 */
-        color: #ffffff; /* ボタンの文字色を変更 */
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        font-size: 16px; /* フォントサイズを変更 */
-      }
-    </style>
-    <script src="/script.js" defer></script>
-  </head>
+    button {
+      padding: 12px;
+      background-color: #007bff;
+      color: #ffffff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 20px;
+    }
+  </style>
+  <script src="/script.js" defer></script>
+</head>
+
   <body>
     <div class="wrapper">
       <div class="content" role="main">

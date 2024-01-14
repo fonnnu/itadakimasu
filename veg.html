@@ -4,62 +4,64 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>野菜選択</title>
-  <style>
-    body {
-      background-color: #f4f4f4;
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-    }
+ <style>
+  body {
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
 
-    .wrapper {
-      max-width: 600px;
-      margin: 0 auto;
-    }
+  .wrapper {
+    max-width: 600px;
+    margin: 20px auto;
+  }
 
-    .content {
-      padding: 20px;
-      background-color: #ffffff;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
+  .content {
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
 
-    .title {
-      color: #333333;
-      text-align: center;
-    }
+  .title {
+    color: #333333;
+    margin-bottom: 10px;
+  }
 
-    .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-    }
+  .gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 20px;
+  }
 
-    .photo {
-      flex-basis: calc(50% - 20px); /* Two columns with margin */
-      margin: 10px;
-      text-align: center;
-      cursor: pointer;
-    }
+  .photo {
+    flex-basis: calc(50% - 20px); /* Two columns with margin */
+    margin: 10px;
+    text-align: center;
+    cursor: pointer;
+  }
 
-    .photo img {
-      width: 100%;
-      border-radius: 8px;
-      box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
-    }
+  .photo img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+  }
 
-    .photo p {
-      margin-top: 8px;
-      color: #555555;
-    }
+  .photo p {
+    margin-top: 8px;
+    color: #555555;
+  }
 
-    #pageC {
-      text-align: center;
-      display: none;
-      margin-top: 20px;
-    }
+  #pageC {
+    text-align: center;
+    display: none;
+    margin-top: 20px;
+  }
 
-    #nextButton {
+   #nextButton {
       padding: 12px;
       background-color: #007bff;
       color: #ffffff;
@@ -68,8 +70,10 @@
       cursor: pointer;
       font-size: 16px;
       display: none;
+      margin-top: 10px; /* Add margin to the top */
     }
-  </style>
+</style>
+
   <script src="/script.js" defer></script>
 </head>
 <body>
@@ -101,7 +105,7 @@
       <!-- ページC -->
       <div id="pageC">
         <h2 id="selectedPhotoTag"></h2>
-        <button id="nextButton" onclick="showNextPage()">Next</button>
+        <button id="nextButton" onclick="showNextPage()">次へ</button>
       </div>
     </div>
   </div>
