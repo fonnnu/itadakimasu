@@ -1,138 +1,129 @@
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>野菜選択</title>
-    <style>
-      body {
-        background-color: #ffffff; /* 背景色を白に設定 */
-        margin: 0;
-        padding: 0;
-        font-family: Arial, sans-serif; /* フォント指定（例：Arial） */
-      }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>野菜選択</title>
+  <style>
+    body {
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
 
-      .wrapper {
-        max-width: 600px;
-        margin: 0 auto;
-      }
+    .wrapper {
+      max-width: 600px;
+      margin: 0 auto;
+    }
 
-      .content {
-        padding: 20px;
-        background-color: #ffffff; /* 背景色を白に設定 */
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* ボックスシャドウを追加 */
-      }
+    .content {
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
 
-      .title {
-        color: #333333; /* タイトルの文字色を変更 */
-      }
+    .title {
+      color: #333333;
+      text-align: center;
+    }
 
-      form {
-        display: flex;
-        flex-direction: column;
-      }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
 
-      label {
-        margin-bottom: 8px;
-        color: #555555; /* ラベルの文字色を変更 */
-      }
+    .photo {
+      flex-basis: calc(50% - 20px); /* Two columns with margin */
+      margin: 10px;
+      text-align: center;
+      cursor: pointer;
+    }
 
-      input {
-        padding: 10px;
-        margin-bottom: 16px;
-        border: 1px solid #aaaaaa; /* ボーダー色を変更 */
-        border-radius: 4px;
-        font-size: 14px; /* フォントサイズを変更 */
-      }
+    .photo img {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+    }
 
-      button {
-        padding: 12px;
-        background-color: #007bff; /* ボタンの背景色を変更 */
-        color: #ffffff; /* ボタンの文字色を変更 */
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        font-size: 16px; /* フォントサイズを変更 */
-      }
-    </style>
-    <script src="/script.js" defer></script>
-  </head>
+    .photo p {
+      margin-top: 8px;
+      color: #555555;
+    }
+
+    #pageC {
+      text-align: center;
+      display: none;
+      margin-top: 20px;
+    }
+
+    #nextButton {
+      padding: 12px;
+      background-color: #007bff;
+      color: #ffffff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      display: none;
+    }
+  </style>
+  <script src="/script.js" defer></script>
+</head>
 <body>
-  <h1 class="veg.title">今、どの野菜を育てていますか。</h1>
-<!-- 写真ギャラリー -->
-  <table>
-    <div class="gallery" id="gallery">
-    <tr>
-   <td><div class="photo" onclick="showPageC('トマト')">
-       <img src="https://cdn.glitch.global/322af513-8604-426e-b160-2ec3165e8b76/tomato.png?v=1705218523975 " alt="tomato">
-
-     <p>トマト</p>
-       </div>
-  </td>
-    <td>
-  <div class="photo" onclick="showPageC('トウモロコシ')">
-    <img src=" " alt="Corn">
-    <p>トウモロコシ</p>
-  </div></td>
-  </tr> 
-    <tr>
-    <td><div class="photo" onclick="showPageC('枝豆')">
-      <img src=" " alt="edamame">
-      <p>枝豆</p>
-    </div></td> 
-     
-    <td> <div class="photo" onclick="showPageC('春菊')">
-      
-      <img src=" " alt="Syungiku">
-      
-      <p>春菊</p>
+  <div class="wrapper">
+    <div class="content">
+      <h1 class="title">どの野菜を<br>育てていますか。</h1>
+      <p>写真を押して選んでください。</p>
+      <!-- 写真ギャラリー -->
+      <div class="gallery" id="gallery">
+        <div class="photo" onclick="showPageC('トマト')">
+          <img src="https://cdn.glitch.global/322af513-8604-426e-b160-2ec3165e8b76/tomato.png?v=1705218523975" alt="tomato">
+          <p>トマト</p>
+        </div>
+        <div class="photo" onclick="showPageC('トウモロコシ')">
+          <img src="https://cdn.glitch.global/322af513-8604-426e-b160-2ec3165e8b76/corn.png?v=1705218995635" alt="Corn">
+          <p>トウモロコシ</p>
+        </div>
+        <div class="photo" onclick="showPageC('枝豆')">
+          <img src="https://cdn.glitch.global/322af513-8604-426e-b160-2ec3165e8b76/damame.jpg?v=1705218994100" alt="edamame">
+          <p>枝豆</p>
+        </div>
+        <div class="photo" onclick="showPageC('春菊')">
+          <img src="https://cdn.glitch.global/322af513-8604-426e-b160-2ec3165e8b76/syungiku.jpg?v=1705218993982" alt="Syungiku">
+          <p>春菊</p>
+        </div>
+        <!-- Add more vegetable entries with correct image URLs -->
       </div>
-    </td>
-    </tr>
 
-</table>
-
-  <!-- 他の写真も同様に追加 -->
-
+      <!-- ページC -->
+      <div id="pageC">
+        <h2 id="selectedPhotoTag"></h2>
+        <button id="nextButton" onclick="showNextPage()">Next</button>
+      </div>
+    </div>
   </div>
 
-<!-- ページC -->
-  <div id="pageC">
-  <h2 id="selectedPhotoTag"></h2>
-  <button id="nextButton" onclick="showNextPhoto()">Next</button>
-    
- </div>
+  <script>
+    function showPageC(tag) {
+      var pageC = document.getElementById('pageC');
+      var selectedPhotoTag = document.getElementById('selectedPhotoTag');
+      selectedPhotoTag.textContent = "選択した野菜: " + tag;
+      pageC.style.display = 'block';
+      document.getElementById('nextButton').style.display = 'block';
+    }
 
-<script>
-  function showPageC(tag) {
-    // ページCの要素を取得
-    var pageC = document.getElementById('pageC');
+    function showNextPage() {
+      window.location.href = 'occup.html';
+    }
 
-    // 選択した写真のタグを取得し、ページCに反映
-    var selectedPhotoTag = document.getElementById('selectedPhotoTag');
-    selectedPhotoTag.textContent = "選択した野菜: " + tag;
+    function showNextPhoto() {
+      // Add logic to show the next photo
+    }
 
-    // ページCを表示
-    pageC.style.display = 'block';
-
-    // Nextボタンを表示
-    document.getElementById('nextButton').style.display = 'block';
-  }
-
-  function showNextPage() {
-    // ここにページ遷移のコードを追加してください
-    window.location.href = 'occup.html';
-  }
-
-  function showNextPhoto() {
-    // ここに次の写真を表示する処理を追加
-    // 例えば、別の写真の表示や処理を行う
-  }
-
-  // Nextボタンがクリックされたときにページ遷移するようにイベントリスナーを追加
-  document.getElementById('nextButton').addEventListener('click', showNextPage);
-</script>
-
-
+    document.getElementById('nextButton').addEventListener('click', showNextPage);
+  </script>
 </body>
 </html>
