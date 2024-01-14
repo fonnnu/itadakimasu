@@ -87,27 +87,27 @@
       <!-- 写真ギャラリー -->
       <div class="gallery" id="gallery">
         <div class="photo" onclick="showPageC(葉みしり)">
-          <img src="" alt="hamishiri">
+          <img src="https://cdn.glitch.global/322af513-8604-426e-b160-2ec3165e8b76/20230111_kuwakariwomen_02_1.png?v=1705223874569" alt="hamishiri">
           <p>葉みしり</p>
         </div>
         <div class="photo" onclick="showPageC('袋詰め')">
-          <img src="" alt="hukurodume">
+          <img src="https://cdn.glitch.global/322af513-8604-426e-b160-2ec3165e8b76/20220519_syukkajunbi_05.png?v=1705223868742" alt="hukurodume">
           <p>袋詰め</p>
         </div>
         <div class="photo" onclick="showPageC('種まき')">
-          <img src="" alt="tanemaki">
+          <img src="https://cdn.glitch.global/322af513-8604-426e-b160-2ec3165e8b76/20220515_2_taneuerukids_02.png?v=1705223870176" alt="tanemaki">
           <p>種まき</p>
         </div>
         <div class="photo" onclick="showPageC('収穫')">
-          <img src="" alt="Syukaku">
+          <img src="https://cdn.glitch.global/322af513-8604-426e-b160-2ec3165e8b76/20220516_1_syukakuman_01.png?v=1705223872345" alt="Syukaku">
           <p>収穫</p>
         </div>
                 <div class="photo" onclick="showPageC('加工')">
-          <img src="" alt="Kakou">
+          <img src="https://cdn.glitch.global/322af513-8604-426e-b160-2ec3165e8b76/20220927_1_tsukemono_002.png?v=1705223869406" alt="Kakou">
           <p>加工</p>
         </div>
                 <div class="photo" onclick="showPageC('苗植え')">
-          <img src="" alt="naeue">
+          <img src="https://cdn.glitch.global/322af513-8604-426e-b160-2ec3165e8b76/20230217_1_taue_02_3.png?v=1705223873491" alt="naeue">
           <p>苗植え</p>
         </div>
         <!-- Add more vegetable entries with correct image URLs -->
@@ -121,11 +121,12 @@
     </div>
   </div>
   <div>
+
   <script>
     function showPageC(tag) {
       var pageC = document.getElementById('pageC');
       var selectedPhotoTag = document.getElementById('selectedPhotoTag');
-      selectedPhotoTag.textContent = "選択した野菜: " + tag;
+      selectedPhotoTag.textContent = "選択した業務: " + tag;
       pageC.style.display = 'block';
       document.getElementById('nextButton').style.display = 'block';
     }
