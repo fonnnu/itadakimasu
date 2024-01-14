@@ -4,56 +4,67 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>野菜選択</title>
- <style>
-  body {
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-  }
+   <style>
+    body {
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
 
-  .wrapper {
-    max-width: 600px;
-    margin: 20px auto;
-  }
+    .wrapper {
+      max-width: 600px;
+      margin: 20px auto;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
 
-  .content {
-    padding: 20px;
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-  }
+    .content {
+      padding: 20px;
+      text-align: center;
+      position: relative;
+    }
 
-  .title {
-    color: #333333;
-    margin-bottom: 10px;
-  }
+    .back-veg-link {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      text-align: left;
+      text-decoration: none;
+      color: #007bff;
+    }
 
-  .gallery {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    margin-top: 20px;
-  }
+    .title {
+      color: #333333;
+      margin-bottom: 10px;
+      font-size: 24px;
+    }
 
-  .photo {
-    flex-basis: calc(50% - 20px); /* Two columns with margin */
-    margin: 10px;
-    text-align: center;
-    cursor: pointer;
-  }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      margin-top: 20px;
+    }
 
-  .photo img {
-    width: 100%;
-    border-radius: 8px;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
-  }
+    .photo {
+      flex-basis: calc(50% - 20px); /* Two columns with margin */
+      margin: 10px;
+      text-align: center;
+      cursor: pointer;
+    }
 
-  .photo p {
-    margin-top: 8px;
-    color: #555555;
-  }
+    .photo img {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .photo p {
+      margin-top: 8px;
+      color: #555555;
+    }
 
     #pageC {
       text-align: center;
@@ -75,8 +86,8 @@
       bottom: 10px;
       right: 10px;
     }
-</style>
-
+  </style>
+  
   <script src="/script.js" defer></script>
 </head>
 <body>
@@ -113,25 +124,27 @@
     </div>
   </div>
   <div>
-  <script>
-    function showPageC(tag) {
-      var pageC = document.getElementById('pageC');
-      var selectedPhotoTag = document.getElementById('selectedPhotoTag');
-      selectedPhotoTag.textContent = "選択した野菜: " + tag;
-      pageC.style.display = 'block';
-      document.getElementById('nextButton').style.display = 'block';
-    }
+<script>
+  function showPageC(tag) {
+    var pageC = document.getElementById('pageC');
+    var selectedPhotoTag = document.getElementById('selectedPhotoTag');
+    selectedPhotoTag.textContent = "選択した野菜: " + tag;
+    pageC.style.display = 'block';
+    document.getElementById('nextButton').style.display = 'block';
+  }
 
-    function showNextPage() {
-      window.location.href = 'occup.html';
-    }
+  function showNextPage() {
+    window.location.href = 'occup.html';
+  }
 
-    function showNextPhoto() {
-      // Add logic to show the next photo
-    }
+  function showNextPhoto() {
+    // Add logic to show the next photo
+  }
 
-    document.getElementById('nextButton').addEventListener('click', showNextPage);
-  </script>
+  document.getElementById('nextButton').addEventListener('click', showNextPage);
+</script>
+
+  </div>
   
 </body>
 </html>
