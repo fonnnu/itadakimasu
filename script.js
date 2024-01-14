@@ -32,3 +32,22 @@ const filer = document.querySelectorAll(".fileopener");
 filer.forEach((f) => {
   f.onclick = () => { goto(f.dataset.file, f.dataset.line); };
 });
+
+function showNextPage(nextPage) {
+  // 選択した情報を取得
+  var selectedInfo = document.getElementById('selectedPhotoTag').textContent;
+
+  // URLにパラメーターを追加してページ遷移
+  window.location.href = `${nextPage}?info=${encodeURIComponent(selectedInfo)}`;
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+  // URLからパラメーターを取得
+  const urlParams = new URLSearchParams(window.location.search);
+  const info = urlParams.get('info');
+
+  if (info) {
+    // パラメーターがあれば、それを表示
+    document.getElementById('selectedInfo').textContent = info;
+  }
+});

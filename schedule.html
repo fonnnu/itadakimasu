@@ -1,31 +1,267 @@
 <!DOCTYPE html>
-<html lang="ja">
-  <head>
-    <!-- 
-      This is an HTML comment
-      You can write text in a comment and the content won't be visible in the page
-    -->
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>野菜・業務選択とスケジュール</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
 
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" href="https://glitch.com/favicon.ico" />
+    .wrapper {
+      max-width: 600px;
+      margin: 20px auto;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
 
-    <!--
-      This is the page head - it contains info the browser uses
-      Like the title, which appears on the browser tab but not inside the page
-      Further down you'll see the content that displays in the page
-    -->
-    <title>Animals</title>
+    .content {
+      padding: 20px;
+      text-align: center;
+      position: relative;
+    }
 
-    <!-- The website stylesheet -->
-    <link rel="stylesheet" href="/style.css" />
+    .back-link {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      text-align: left;
+      text-decoration: none;
+      color: #007bff;
+    }
 
-    <!-- The website JavaScript file -->
-    <script src="/script.js" defer></script>
-  </head>
-  
-  <body>
-    <a href="occup.html" class="back-link"><h2>戻る</h2></a>
-    <p>aaaaaaaaa</p>
-  </body>
+    .title {
+      color: #333333;
+      margin-bottom: 10px;
+      font-size: 24px;
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      margin-top: 20px;
+    }
+
+    .photo {
+      flex-basis: calc(50% - 20px);
+      margin: 10px;
+      text-align: center;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .photo img {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .photo p {
+      margin-top: 8px;
+      color: #555555;
+    }
+
+    #pageC {
+      text-align: center;
+      display: none;
+      margin-top: 10px;
+    }
+
+    #nextButton {
+      padding: 12px;
+      background-color: #007bff;
+      color: #ffffff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      display: none;
+      margin-top: 10px;
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+    }
+
+    .calendar {
+      max-width: 600px;
+      margin: 20px auto;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      border: 1px solid #dddddd;
+      text-align: center;
+      padding: 10px;
+    }
+
+    th {
+      background-color: #007bff;
+      color: #ffffff;
+    }
+
+    .available {
+      position: relative;
+      cursor: pointer;
+    }
+
+    .dot {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 10px;
+      height: 10px;
+      background-color: red;
+      border-radius: 50%;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+<!-- veg.html -->
+<div class="wrapper">
+  <div class="content">
+    <a href="#" class="back-link" onclick="goBack()">戻る</a>
+    <h2 class="title">どの野菜を育てていますか。</h2>
+    <p>写真を押して選んでください。</p>
+    <!-- 写真ギャラリー -->
+    <div class="gallery" id="gallery">
+      <!-- Add vegetable entries here -->
+    </div>
+    <!-- ページC -->
+    <div id="pageC">
+      <h2 id="selectedPhotoTag"></h2>
+      <button id="nextButton" onclick="showNextPage('occup.html')">次へ</button>
+    </div>
+  </div>
+</div>
+
+<!-- occup.html -->
+<div class="wrapper">
+  <div class="content">
+    <a href="#" class="back-link" onclick="goBack()">戻る</a>
+    <h2 class="title">業務種類は何ですか</h2>
+    <p>写真を押して選んでください。</p>
+    <!-- 写真ギャラリー -->
+    <div class="gallery" id="gallery">
+      <!-- Add occupation entries here -->
+    </div>
+    <!-- ページC -->
+    <div id="pageC">
+      <h2 id="selectedPhotoTag"></h2>
+      <button id="nextButton" onclick="showNextPage('schedule.html')">次へ</button>
+    </div>
+  </div>
+</div>
+
+<!-- schedule.html -->
+<div class="wrapper">
+  <div class="content">
+    <a href="#" class="back-link" onclick="goBack()">戻る</a>
+    <h2 class="title">スケジュールカレンダー</h2>
+    <!-- カレンダー表示 -->
+    <div class="calendar" id="calendar">
+      <table>
+        <thead>
+          <tr>
+            <th>Sun</th>
+            <th>Mon</th>
+            <th>Tue</th>
+            <th>Wed</th>
+            <th>Thu</th>
+            <th>Fri</th>
+            <th>Sat</th>
+          </tr>
+        </thead>
+        <tbody id="calendarBody">
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    generateCalendar('calendarBody');
+  });
+
+  function goBack() {
+    window.history.back();
+  }
+
+  function showPageC(tag) {
+    var pageC = document.getElementById('pageC');
+    var selectedPhotoTag = document.getElementById('selectedPhotoTag');
+    selectedPhotoTag.textContent = "選択した情報: " + tag;
+    pageC.style.display = 'block';
+    document.getElementById('nextButton').style.display = 'block';
+  }
+
+  function showNextPage(nextPage) {
+    window.location.href = nextPage;
+  }
+
+  function toggleDot(cell) {
+    const dot = cell.querySelector('.dot');
+    dot.style.display = (dot.style.display === 'block') ? 'none' : 'block';
+  }
+
+  function generateCalendar(targetId) {
+    const calendarBody = document.getElementById(targetId);
+    const currentDate = new Date();
+    const currentMonth = currentDate.getMonth();
+    const daysInMonth = new Date(currentDate.getFullYear(), currentMonth + 1, 0).getDate();
+    const firstDay = new Date(currentDate.getFullYear(), currentMonth, 1).getDay();
+
+    let dayCount = 1;
+
+    for (let i = 0; i < 6; i++) {
+      const row = document.createElement('tr');
+
+      for (let j = 0; j < 7; j++) {
+        const cell = document.createElement('td');
+        if ((i === 0 && j < firstDay) || dayCount > daysInMonth) {
+          // Empty cells before the first day and after the last day
+          cell.textContent = '';
+        } else {
+          cell.textContent = dayCount;
+
+          // Add the 'available' class to indicate an available day
+          cell.classList.add('available');
+
+          // Add a click event listener to each available day
+          cell.addEventListener('click', function () {
+            toggleDot(cell);
+          });
+
+          dayCount++;
+        }
+
+        const dot = document.createElement('div');
+        dot.classList.add('dot');
+        cell.appendChild(dot);
+
+        row.appendChild(cell);
+      }
+      calendarBody.appendChild(row);
+    }
+  }
+</script>
+
+</body>
 </html>
