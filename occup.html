@@ -28,7 +28,6 @@
   .title {
     color: #333333;
     margin-bottom: 10px;
-    font-size: 24px;
   }
 
   .gallery {
@@ -43,7 +42,6 @@
     margin: 10px;
     text-align: center;
     cursor: pointer;
-    position: relative;
   }
 
   .photo img {
@@ -55,17 +53,12 @@
   .photo p {
     margin-top: 8px;
     color: #555555;
-    font-size: 16px;
-  }
-  
-  .selected-photo {
-    border: 2px solid red;
   }
 
   #pageC {
     text-align: center;
     display: none;
-    margin-top: 20px;
+    margin-top: 10px;
   }
 
    #nextButton {
@@ -75,17 +68,13 @@
       border: none;
       border-radius: 4px;
       cursor: pointer;
-      font-size: 20px;
+      font-size: 25px;
       display: none;
-      margin-top: 20px;
+      margin-top: 10px;
       position: absolute;
-      bottom: 20px;
-      right: 20px;
-  }
-
-  #selectedPhoto {
-    margin-top: 20px;
-  }
+      bottom: 10px;
+      right: 10px;
+    }
 </style>
 
   <script src="/script.js" defer></script>
@@ -93,31 +82,31 @@
 <body>
   <div class="wrapper">
     <div class="content">
-      <h2 class="title">業務種類はなんですか</h2>
+      <h2 class="title">業務種類はなんんですか</h2>
       <p>写真を押して選んでください。</p>
       <!-- 写真ギャラリー -->
       <div class="gallery" id="gallery">
-        <div class="photo" onclick="showPageC('葉みしり', this)">
+        <div class="photo" onclick="showPageC(葉みしり)">
           <img src="https://cdn.glitch.global/322af513-8604-426e-b160-2ec3165e8b76/20230111_kuwakariwomen_02_1.png?v=1705223874569" alt="hamishiri">
           <p>葉みしり</p>
         </div>
-        <div class="photo" onclick="showPageC('袋詰め', this)">
+        <div class="photo" onclick="showPageC('袋詰め')">
           <img src="https://cdn.glitch.global/322af513-8604-426e-b160-2ec3165e8b76/20220519_syukkajunbi_05.png?v=1705223868742" alt="hukurodume">
           <p>袋詰め</p>
         </div>
-        <div class="photo" onclick="showPageC('種まき', this)">
+        <div class="photo" onclick="showPageC('種まき')">
           <img src="https://cdn.glitch.global/322af513-8604-426e-b160-2ec3165e8b76/20220515_2_taneuerukids_02.png?v=1705223870176" alt="tanemaki">
           <p>種まき</p>
         </div>
-        <div class="photo" onclick="showPageC('収穫', this)">
+        <div class="photo" onclick="showPageC('収穫')">
           <img src="https://cdn.glitch.global/322af513-8604-426e-b160-2ec3165e8b76/20220516_1_syukakuman_01.png?v=1705223872345" alt="Syukaku">
           <p>収穫</p>
         </div>
-        <div class="photo" onclick="showPageC('加工', this)">
+                <div class="photo" onclick="showPageC('加工')">
           <img src="https://cdn.glitch.global/322af513-8604-426e-b160-2ec3165e8b76/20220927_1_tsukemono_002.png?v=1705223869406" alt="Kakou">
           <p>加工</p>
         </div>
-        <div class="photo" onclick="showPageC('苗植え', this)">
+                <div class="photo" onclick="showPageC('苗植え')">
           <img src="https://cdn.glitch.global/322af513-8604-426e-b160-2ec3165e8b76/20230217_1_taue_02_3.png?v=1705223873491" alt="naeue">
           <p>苗植え</p>
         </div>
@@ -127,29 +116,17 @@
       <!-- ページC -->
       <div id="pageC">
         <h2 id="selectedPhotoTag"></h2>
-        <div id="selectedPhoto"></div>
         <button id="nextButton" onclick="showNextPage()">次へ</button>
       </div>
     </div>
   </div>
+  <div>
 
   <script>
-    function showPageC(tag, clickedElement) {
+    function showPageC(tag) {
       var pageC = document.getElementById('pageC');
       var selectedPhotoTag = document.getElementById('selectedPhotoTag');
-      var selectedPhoto = document.getElementById('selectedPhoto');
-
-      // Remove the 'selected-photo' class from all photos
-      var allPhotos = document.querySelectorAll('.photo');
-      allPhotos.forEach(photo => {
-        photo.classList.remove('selected-photo');
-      });
-
-      // Add the 'selected-photo' class to the clicked photo
-      clickedElement.classList.add('selected-photo');
-
       selectedPhotoTag.textContent = "選択した業務: " + tag;
-      selectedPhoto.innerHTML = '<img src="' + clickedElement.querySelector('img').src + '" alt="' + tag + '">';
       pageC.style.display = 'block';
       document.getElementById('nextButton').style.display = 'block';
     }
@@ -164,5 +141,7 @@
 
     document.getElementById('nextButton').addEventListener('click', showNextPage);
   </script>
+  </div>
 </body>
 </html>
+
