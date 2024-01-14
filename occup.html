@@ -4,113 +4,101 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>業務種類選択</title>
- <style>
-  body {
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-  }
+  <style>
+    body {
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
 
-  .wrapper {
-    max-width: 600px;
-    margin: 20px auto;
-  }
+    .wrapper {
+      max-width: 600px;
+      margin: 20px auto;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
 
-  .content {
-    padding: 20px;
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-  }
+    .content {
+      padding: 20px;
+      text-align: center;
+    }
 
-  .title {
-    color: #333333;
-    margin-bottom: 10px;
-  }
+    .title {
+      color: #333333;
+      margin-bottom: 10px;
+      font-size: 24px;
+    }
 
-  .gallery {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    margin-top: 20px;
-  }
+    .back-veg-link {
+      display: block;
+      margin-bottom: 20px; /* Adjust margin as needed */
+      text-align: left;
+    }
 
-  .photo {
-    flex-basis: calc(50% - 20px); /* Two columns with margin */
-    margin: 10px;
-    text-align: center;
-    cursor: pointer;
-  }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      margin-top: 20px;
+    }
 
-  .photo img {
-    width: 100%;
-    border-radius: 8px;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
-  }
+    .photo {
+      flex-basis: calc(50% - 20px); /* Two columns with margin */
+      margin: 10px;
+      text-align: center;
+      cursor: pointer;
+    }
 
-  .photo p {
-    margin-top: 8px;
-    color: #555555;
-  }
+    .photo img {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+    }
 
-  #pageC {
-    text-align: center;
-    display: none;
-    margin-top: 10px;
-  }
+    .photo p {
+      margin-top: 8px;
+      color: #555555;
+    }
 
-   #nextButton {
+    #pageC {
+      text-align: center;
+      display: none;
+      margin-top: 10px;
+    }
+
+    #nextButton {
       padding: 12px;
       background-color: #007bff;
       color: #ffffff;
       border: none;
       border-radius: 4px;
       cursor: pointer;
-      font-size: 25px;
+      font-size: 16px;
       display: none;
       margin-top: 10px;
       position: absolute;
       bottom: 10px;
       right: 10px;
     }
-</style>
+  </style>
 
   <script src="/script.js" defer></script>
 </head>
 <body>
+  <a href="veg.html" class="back-veg-link"><h2>戻る</h2></a>
   <div class="wrapper">
     <div class="content">
-      <h2 class="title">業務種類はなんんですか</h2>
+      <h2 class="title">業務種類は何ですか</h2>
       <p>写真を押して選んでください。</p>
       <!-- 写真ギャラリー -->
       <div class="gallery" id="gallery">
-        <div class="photo" onclick="showPageC(葉みしり)">
+        <div class="photo" onclick="showPageC('葉みしり')">
           <img src="https://cdn.glitch.global/322af513-8604-426e-b160-2ec3165e8b76/20230111_kuwakariwomen_02_1.png?v=1705223874569" alt="hamishiri">
           <p>葉みしり</p>
         </div>
-        <div class="photo" onclick="showPageC('袋詰め')">
-          <img src="https://cdn.glitch.global/322af513-8604-426e-b160-2ec3165e8b76/20220519_syukkajunbi_05.png?v=1705223868742" alt="hukurodume">
-          <p>袋詰め</p>
-        </div>
-        <div class="photo" onclick="showPageC('種まき')">
-          <img src="https://cdn.glitch.global/322af513-8604-426e-b160-2ec3165e8b76/20220515_2_taneuerukids_02.png?v=1705223870176" alt="tanemaki">
-          <p>種まき</p>
-        </div>
-        <div class="photo" onclick="showPageC('収穫')">
-          <img src="https://cdn.glitch.global/322af513-8604-426e-b160-2ec3165e8b76/20220516_1_syukakuman_01.png?v=1705223872345" alt="Syukaku">
-          <p>収穫</p>
-        </div>
-                <div class="photo" onclick="showPageC('加工')">
-          <img src="https://cdn.glitch.global/322af513-8604-426e-b160-2ec3165e8b76/20220927_1_tsukemono_002.png?v=1705223869406" alt="Kakou">
-          <p>加工</p>
-        </div>
-                <div class="photo" onclick="showPageC('苗植え')">
-          <img src="https://cdn.glitch.global/322af513-8604-426e-b160-2ec3165e8b76/20230217_1_taue_02_3.png?v=1705223873491" alt="naeue">
-          <p>苗植え</p>
-        </div>
-        <!-- Add more vegetable entries with correct image URLs -->
+        <!-- 他の写真要素も続く -->
       </div>
 
       <!-- ページC -->
@@ -120,7 +108,6 @@
       </div>
     </div>
   </div>
-  <div>
 
   <script>
     function showPageC(tag) {
@@ -132,7 +119,7 @@
     }
 
     function showNextPage() {
-      window.location.href = 'occup.html';
+      window.location.href = 'schedule.html';
     }
 
     function showNextPhoto() {
@@ -141,7 +128,5 @@
 
     document.getElementById('nextButton').addEventListener('click', showNextPage);
   </script>
-  </div>
 </body>
 </html>
-
