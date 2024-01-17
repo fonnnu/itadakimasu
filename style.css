@@ -14,7 +14,7 @@ body {
   background-color: #ffffff;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  padding: 20px;
+  padding: 25px;
   
 }
 
@@ -23,8 +23,9 @@ body {
 .farmer-button {
   background-color: #D1AB14;
   color: #ffffff;
-  border: 2px solid #000000;
-
+  border: 1px solid  #ffffff;
+  box-shadow: 0 0 5px 1px rgba(0,0,0,0.5);
+  font-weight: bold;
 }
 
 /* 農業者以外の方のボタンのスタイル */
@@ -32,7 +33,9 @@ body {
   background-color: #ffffff;
   color: #D1AB14;
   border: 4px solid #000000; 
-
+  border: 1px solid #D1AB14;
+  box-shadow: 0 0 5px 1px rgba(0,0,0,0.5);
+  font-weight: bold;
 }
 
 .selection-button {
@@ -40,10 +43,9 @@ body {
   width: 100%; /* ボタンを親要素の幅いっぱいに広げる */
   margin: 10px auto; /* 上下中央に配置 */
   padding: 15px 30px;
-  font-size: 16px;
+  font-size: 25px;
   cursor: pointer;
   text-decoration: none;
-  border: none;
   border-radius: 5px;
   /* ボタンを垂直に並べるスタイル */
 
@@ -51,9 +53,9 @@ body {
 
 /* 画像スタイル */
 img {
-  max-width: 100%;
+  max-width: 90%;
   height: auto;
-  border-radius: 8px;
+  border-radius: 20px;
 }
 
 /* 携帯デバイス用のスタイル */
