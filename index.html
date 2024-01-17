@@ -21,21 +21,30 @@
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       padding: 20px;
     }
+    
+    /* 農業者の方のボタンのスタイル */
+    .farmer-button {
+    background-color: #D1AB14;
+    color: #ffffff;
+    }
 
+  /* 農業者以外の方のボタンのスタイル */
+    .fan-button {
+    background-color: #ffffff;
+    color: #D1AB14;
+    }
     .selection-button {
       display: inline-block;
       margin: 10px;
       padding: 15px 30px;
       font-size: 16px;
       cursor: pointer;
-      background-color: #007bff;
-      color: #ffffff;
+/*       background-color: #D1AB14; */
       text-decoration: none;
       border: none;
       border-radius: 5px;
     }
-
-    /* 画像スタイル */
+   /* 画像スタイル */
     img {
       max-width: 100%;
       height: auto;
@@ -54,8 +63,9 @@
 <div class="selection-wrapper">
   <h2>以下、該当するものを<br>選択してください。</h2>
    <img src="https://cdn.glitch.global/322af513-8604-426e-b160-2ec3165e8b76/I%20(2).png?v=1705508826233" alt="itadakimasu_start">
-   <button class="selection-button" onclick="selectRole('farmer')">農業者の方</button>
-  <button class="selection-button" onclick="selectRole('fan')">農業者以外の方</button>
+  <button class="selection-button farmer-button" onclick="selectRole('farmer')">農業者の方</button>
+　<button class="selection-button fan-button" onclick="selectRole('fan')">農業者以外の方</button>
+
 </div>
 
 <script>
