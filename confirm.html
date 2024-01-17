@@ -1,31 +1,62 @@
 <!DOCTYPE html>
-<html lang="ja">
-  <head>
-    <!-- 
-      This is an HTML comment
-      You can write text in a comment and the content won't be visible in the page
-    -->
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>登録完了（農家さん）</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
 
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" href="https://glitch.com/favicon.ico" />
+    .page-wrapper {
+      max-width: 600px;
+      margin: 20px auto;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+    }
 
-    <!--
-      This is the page head - it contains info the browser uses
-      Like the title, which appears on the browser tab but not inside the page
-      Further down you'll see the content that displays in the page
-    -->
-    <title>Animals</title>
+    .back-link {
+      display: block;
+      margin-bottom: 20px;
+      text-decoration: none;
+      color: #007bff;
+    }
 
-    <!-- The website stylesheet -->
-    <link rel="stylesheet" href="/style.css" />
+    .register-message {
+      margin-bottom: 20px;
+    }
 
-    <!-- The website JavaScript file -->
-    <script src="/script.js" defer></script>
-  </head>
-  
-  <body>
-    <a href="index.html" class="back-link"><h2>戻る</h2></a>
-    <p>aaaaaaaaa</p>
-  </body>
+    .register-message h2 {
+      color: #000000; /* 黒に変更 */
+    }
+
+    .selection-button {
+      display: inline-block;
+      margin: 10px;
+      padding: 15px 30px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #007bff;
+      color: #ffffff;
+      text-decoration: none;
+      border: none;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <a href="index.html" class="back-link"><h2>戻る</h2></a>
+  <div class="page-wrapper">
+    <div class="register-message">
+      <h2>登録が完了しました。</h2>
+    </div>
+  </div>
+</body>
 </html>
