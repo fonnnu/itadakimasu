@@ -4,13 +4,14 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ファンの日程調整</title>
+  <title>ファンの日程確認</title>
   <style>
     body {
+      font-family: Arial, sans-serif;
       background-color: #f4f4f4;
       margin: 0;
       padding: 0;
-      font-family: Arial, sans-serif;
+      text-align: center;
     }
 
     .wrapper {
@@ -27,7 +28,7 @@
       position: relative;
     }
 
-    .back-veg-link {
+    .back-link {
       position: absolute;
       top: 10px;
       left: 10px;
@@ -42,82 +43,95 @@
       font-size: 24px;
     }
 
-    .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-around;
-      margin-top: 20px;
+    .calendar {
+      max-width: 600px;
+      margin: 20px auto;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
 
-    .photo {
-      flex-basis: calc(50% - 20px); /* Two columns with margin */
-      margin: 10px;
-      text-align: center;
-      cursor: pointer;
-    }
-
-    .photo img {
+    table {
       width: 100%;
-      border-radius: 8px;
-      box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+      border-collapse: collapse;
     }
 
-    .photo p {
-      margin-top: 8px;
-      color: #555555;
-    }
-
-    #pageC {
+    th, td {
+      border: 1px solid #dddddd;
       text-align: center;
-      display: none;
-      margin-top: 10px;
+      padding: 10px;
     }
 
-    #nextButton {
-      padding: 12px;
+    th {
       background-color: #007bff;
       color: #ffffff;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 16px;
-      display: none;
-      margin-top: 10px;
+    }
+
+    .available {
+      position: relative;
+      cursor: default;
+    }
+
+    .dot {
       position: absolute;
-      bottom: 10px;
-      right: 10px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 25px; /* 例: ドットの幅 */
+      height: 25px; /* 例: ドットの高さ */
+      background-color: transparent; /* ドットの背景色を赤に設定 */
+      border: 2px solid red; /* ドットの外側に赤い線を引いて穴を開ける */
+      border-radius: 50%;
     }
   </style>
-
-  <script src="/script.js" defer></script>
 </head>
 <body>
-  <div class="wrapper">
-    <div class="content">
-      <a href="veg.html" class="back-veg-link"><h2>戻る</h2></a>
-      <h2 class="title">○○農園</h2>
-       <p>ご都合のいい日ありますか。</p>  
- <!-- fan_schedule.html -->
 
-<!-- schedule.html -->
-
-<!-- 既存のコード ... -->
+<div class="wrapper">
+  <div class="content">
+    <a href="#" class="back-link" onclick="goBack()">戻る</a>
+    <h2 class="title">農家さんの日程</h2>
+    <p>農家さんの予定が表示されます。</p>
+    <!-- カレンダー表示 -->
+    <div class="calendar" id="calendar">
+      <table>
+        <thead>
+          <tr>
+            <th>日</th>
+            <th>月</th>
+            <th>火</th>
+            <th>水</th>
+            <th>木</th>
+            <th>金</th>
+            <th>土</th>
+          </tr>
+        </thead>
+        <tbody id="calendarBody">
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-    // ローカルストレージから保存された日程を取得
-    var storedDates = localStorage.getItem('selectedDates');
-    if (storedDates) {
-      // 取得できた場合はJSONパースして日程を取得
-      var selectedDates = JSON.parse(storedDates);
-
-      // ここで取得した日程を表示する処理を実行
-      displayDates(selectedDates);
-    }
+    // ここでlocalStorageから日程を取得し、表示する処理を追加
+    displayStoredDates();
   });
 
+  function goBack() {
+    window.history.back();
+  }
+
+  function displayStoredDates() {
+    var storedDates = localStorage.getItem('selectedDates');
+    if (storedDates) {
+      var selectedDates = JSON.parse(storedDates);
+      displayDates(selectedDates);
+    }
+  }
+
   function displayDates(dates) {
-    // カレンダーのセルに日程を表示
     for (var date of dates) {
       var dayCell = document.querySelector(`td[data-day="${date}"]`);
 
@@ -129,61 +143,9 @@
 
   function toggleDot(cell) {
     const dot = cell.querySelector('.dot');
-    dot.style.display = (dot.style.display === 'block') ? 'none' : 'block';
-  }
-
-  // カレンダーの生成
-  generateCalendar('calendarBody');
-
-  function generateCalendar(targetId) {
-    const calendarBody = document.getElementById(targetId);
-    const currentDate = new Date();
-    const currentMonth = currentDate.getMonth();
-    const daysInMonth = new Date(currentDate.getFullYear(), currentMonth + 1, 0).getDate();
-    const firstDay = new Date(currentDate.getFullYear(), currentMonth, 1).getDay();
-
-    let dayCount = 1;
-
-    for (let i = 0; i < 6; i++) {
-      const row = document.createElement('tr');
-
-      for (let j = 0; j < 7; j++) {
-        const cell = document.createElement('td');
-        if ((i === 0 && j < firstDay) || dayCount > daysInMonth) {
-          // Empty cells before the first day and after the last day
-          cell.textContent = '';
-        } else {
-          cell.textContent = dayCount;
-
-          // Add the 'available' class to indicate an available day
-          cell.classList.add('available');
-
-          // Add a click event listener to each available day
-          cell.addEventListener('click', function () {
-            toggleDot(cell);
-          });
-
-          dayCount++;
-        }
-
-        const dot = document.createElement('div');
-        dot.classList.add('dot');
-        cell.appendChild(dot);
-
-        row.appendChild(cell);
-      }
-      calendarBody.appendChild(row);
-    }
+    dot.style.display = 'block';
   }
 </script>
 
-<!-- 既存のコード ... -->
-
-
 </body>
 </html>
-
-
-
-
-
