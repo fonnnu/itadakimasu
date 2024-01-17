@@ -1,4 +1,108 @@
 <!-- fan_schedule.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ファンの日程調整</title>
+  <style>
+    body {
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .wrapper {
+      max-width: 600px;
+      margin: 20px auto;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .content {
+      padding: 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    .back-veg-link {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      text-align: left;
+      text-decoration: none;
+      color: #007bff;
+    }
+
+    .title {
+      color: #333333;
+      margin-bottom: 10px;
+      font-size: 24px;
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      margin-top: 20px;
+    }
+
+    .photo {
+      flex-basis: calc(50% - 20px); /* Two columns with margin */
+      margin: 10px;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .photo img {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .photo p {
+      margin-top: 8px;
+      color: #555555;
+    }
+
+    #pageC {
+      text-align: center;
+      display: none;
+      margin-top: 10px;
+    }
+
+    #nextButton {
+      padding: 12px;
+      background-color: #007bff;
+      color: #ffffff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      display: none;
+      margin-top: 10px;
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+    }
+  </style>
+
+  <script src="/script.js" defer></script>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="content">
+      <a href="veg.html" class="back-veg-link"><h2>戻る</h2></a>
+      <h2 class="title">○○農園</h2>
+       <p>ご都合のいい日ありますか。</p>  
+ <!-- fan_schedule.html -->
+
+<!-- schedule.html -->
+
+<!-- 既存のコード ... -->
+
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     // ローカルストレージから保存された日程を取得
@@ -13,7 +117,73 @@
   });
 
   function displayDates(dates) {
-    // ここで日程の表示処理を行う
-    // 例えば、HTMLの特定の要素に日程を表示するなど
+    // カレンダーのセルに日程を表示
+    for (var date of dates) {
+      var dayCell = document.querySelector(`td[data-day="${date}"]`);
+
+      if (dayCell) {
+        toggleDot(dayCell);
+      }
+    }
+  }
+
+  function toggleDot(cell) {
+    const dot = cell.querySelector('.dot');
+    dot.style.display = (dot.style.display === 'block') ? 'none' : 'block';
+  }
+
+  // カレンダーの生成
+  generateCalendar('calendarBody');
+
+  function generateCalendar(targetId) {
+    const calendarBody = document.getElementById(targetId);
+    const currentDate = new Date();
+    const currentMonth = currentDate.getMonth();
+    const daysInMonth = new Date(currentDate.getFullYear(), currentMonth + 1, 0).getDate();
+    const firstDay = new Date(currentDate.getFullYear(), currentMonth, 1).getDay();
+
+    let dayCount = 1;
+
+    for (let i = 0; i < 6; i++) {
+      const row = document.createElement('tr');
+
+      for (let j = 0; j < 7; j++) {
+        const cell = document.createElement('td');
+        if ((i === 0 && j < firstDay) || dayCount > daysInMonth) {
+          // Empty cells before the first day and after the last day
+          cell.textContent = '';
+        } else {
+          cell.textContent = dayCount;
+
+          // Add the 'available' class to indicate an available day
+          cell.classList.add('available');
+
+          // Add a click event listener to each available day
+          cell.addEventListener('click', function () {
+            toggleDot(cell);
+          });
+
+          dayCount++;
+        }
+
+        const dot = document.createElement('div');
+        dot.classList.add('dot');
+        cell.appendChild(dot);
+
+        row.appendChild(cell);
+      }
+      calendarBody.appendChild(row);
+    }
   }
 </script>
+
+<!-- 既存のコード ... -->
+
+
+</body>
+</html>
+
+
+
+
+

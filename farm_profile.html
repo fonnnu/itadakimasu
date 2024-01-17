@@ -66,43 +66,43 @@
   <script src="/script.js" defer></script>
 </head>
 
-  <body>
-    <div class="wrapper">
-      <div class="content" role="main">
-        <h1 class="title">プロフィール入力（農業者）</h1>
-    <form id="profileForm" onsubmit="submitFormAndNavigate(); return false;">
-    <label for="name">名前:</label>
-    <input type="text" id="name" name="name" required>
+<body>
+  <div class="wrapper">
+    <div class="content" role="main">
+      <h1 class="title">プロフィール入力（農業者）</h1>
+      <form id="profileForm" onsubmit="submitFormAndNavigate(); return false;">
+        <label for="name">名前:</label>
+        <input type="text" id="name" name="name" required>
 
-    <label for="birthdate">生年月日:</label>
-    <input type="date" id="birthdate" name="birthdate" required>
+        <label for="birthdate">生年月日:</label>
+        <input type="date" id="birthdate" name="birthdate" required>
 
-    <label for="phone">携帯電話:</label>
-    <input type="tel" id="phone" name="phone" pattern="[0-9]{10,11}" required>
-    
-    <br>
+        <label for="phone">携帯電話:</label>
+        <input type="tel" id="phone" name="phone" pattern="[0-9]{10,11}" required>
 
-    <button type="submit">登録</button>
-</form>
+        <br>
 
+        <button type="submit">登録</button>
+      </form>
 
-<script>
-    function submitFormAndNavigate() {
-        // フォームの値を取得
-        var name = document.getElementById('name').value;
-        var birthdate = document.getElementById('birthdate').value;
-        var phone = document.getElementById('phone').value;
+      <script>
+        function submitFormAndNavigate() {
+          // フォームの値を取得
+          var name = document.getElementById('name').value;
+          var birthdate = document.getElementById('birthdate').value;
+          var phone = document.getElementById('phone').value;
 
-        // フォームの値を次のページに渡して遷移
-        window.location.href = 'veg.html?name=' + encodeURIComponent(name) +
-                               '&birthdate=' + encodeURIComponent(birthdate) +
-                               '&phone=' + encodeURIComponent(phone);
-    }
-</script>
-      </div>
+          // フォームの値を次のページに渡して遷移
+          window.location.href = 'fan_schedule.html?name=' + encodeURIComponent(name) +
+            '&birthdate=' + encodeURIComponent(birthdate) +
+            '&phone=' + encodeURIComponent(phone);
+        }
+      </script>
     </div>
-    <footer class="footer">
-      <div class="links"></div>
-    </footer>
-  </body>
+  </div>
+  <footer class="footer">
+    <div class="links"></div>
+  </footer>
+</body>
+
 </html>
