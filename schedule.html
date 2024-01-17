@@ -167,26 +167,17 @@
 
 
 <script>
-    function register() {
-    // ここで日程の登録処理を行う（例: ローカルストレージへ保存）
-    var selectedDates = /* ここに日程の取得処理 */;
+  
+  // 登録ボタンがクリックされたときの処理
+  function register() {
+    // ここに登録処理を追加
 
-    // ローカルストレージに保存
-    localStorage.setItem('selectedDates', JSON.stringify(selectedDates));
+    // 遷移先のURL
+    var nextPage = 'register.html';
 
-   
-    window.location.href = 'register.html';
+    // 遷移
+    window.location.href = nextPage;
   }
-//   // 登録ボタンがクリックされたときの処理
-//   function register() {
-//     // ここに登録処理を追加
-
-//     // 遷移先のURL
-//     var nextPage = 'register.html';
-
-//     // 遷移
-//     window.location.href = nextPage;
-//   }
 
   // 以下、既存のコードが続く...
   

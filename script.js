@@ -10,6 +10,7 @@ console.log("Hello 🌎");
 Make the "Click me!" button move when the visitor clicks it:
 - First add the button to the page by following the steps in the TODO 🚧
 */
+
 const btn = document.querySelector("button"); // Get the button from the page
 if (btn) { // Detect clicks on the button
   btn.onclick = function () {
@@ -17,6 +18,19 @@ if (btn) { // Detect clicks on the button
     btn.classList.toggle("dipped");
   };
 }
+
+// schedule.html
+function register() {
+  // ここで日程の登録処理を行う（例: ローカルストレージへ保存）
+  var selectedDates = /* ここに日程の取得処理 */;
+
+  // ローカルストレージに保存
+  localStorage.setItem('selectedDates', JSON.stringify(selectedDates));
+
+  // fan_profile.htmlに遷移
+  window.location.href = 'fan_profile.html';
+}
+
 
 
 // ----- GLITCH STARTER PROJECT HELPER CODE -----
@@ -51,3 +65,5 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('selectedInfo').textContent = info;
   }
 });
+// schedule.html
+

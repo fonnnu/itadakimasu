@@ -3,106 +3,64 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>プロフィール入力</title>
+  <title>生産者か農業者か</title>
   <style>
     body {
+      font-family: Arial, sans-serif;
       background-color: #f4f4f4;
       margin: 0;
       padding: 0;
-      font-family: Arial, sans-serif;
+      text-align: center;
     }
 
-    .wrapper {
-      width: 100%;
-      box-sizing: border-box;
-      padding: 20px;
-    }
-
-    .content {
+    .selection-wrapper {
+      max-width: 600px;
+      margin: 20px auto;
       background-color: #ffffff;
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       padding: 20px;
     }
 
-    .title {
-      color: #333333;
-      text-align: center;
-    }
-
-    form {
-      display: flex;
-      flex-direction: column;
-    }
-
-    label {
-      margin-bottom: 8px;
-      color: #555555;
-    }
-
-    input {
-      padding: 10px;
-      margin-bottom: 16px;
-      border: 1px solid #aaaaaa;
-      border-radius: 4px;
-      font-size: 14px;
-    }
-
-    button {
-      padding: 12px;
+    .selection-button {
+      display: inline-block;
+      margin: 10px;
+      padding: 15px 30px;
+      font-size: 16px;
+      cursor: pointer;
       background-color: #007bff;
       color: #ffffff;
+      text-decoration: none;
       border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 16px;
-    }
-
-    .footer {
-      text-align: center;
-      margin-top: 20px;
+      border-radius: 5px;
     }
   </style>
-  <script src="/script.js" defer></script>
 </head>
+<body>
 
-  <body>
-    <div class="wrapper">
-      <div class="content" role="main">
-        <h1 class="title">プロフィール入力</h1>
-    <form id="profileForm" onsubmit="submitFormAndNavigate(); return false;">
-    <label for="name">名前:</label>
-    <input type="text" id="name" name="name" required>
-
-    <label for="birthdate">生年月日:</label>
-    <input type="date" id="birthdate" name="birthdate" required>
-
-    <label for="phone">携帯電話:</label>
-    <input type="tel" id="phone" name="phone" pattern="[0-9]{10,11}" required>
-    
-    <br>
-
-    <button type="submit">登録</button>
-</form>
-
+<div class="selection-wrapper">
+  <h2>あなたは生産者ですか？農業者ですか？</h2>
+   <button class="selection-button" onclick="selectRole('farmer')">農業者</button>
+  <button class="selection-button" onclick="selectRole('fan')">農業者以外</button>
+ 
+</div>
 
 <script>
-    function submitFormAndNavigate() {
-        // フォームの値を取得
-        var name = document.getElementById('name').value;
-        var birthdate = document.getElementById('birthdate').value;
-        var phone = document.getElementById('phone').value;
+  // 選択された役割を保存するための変数
+  var selectedRole = '';
 
-        // フォームの値を次のページに渡して遷移
-        window.location.href = 'veg.html?name=' + encodeURIComponent(name) +
-                               '&birthdate=' + encodeURIComponent(birthdate) +
-                               '&phone=' + encodeURIComponent(phone);
+  // 役割を選択する関数
+  function selectRole(role) {
+    selectedRole = role;
+
+    // 役割に応じてページ遷移
+    if (selectedRole === 'farmer') {
+      window.location.href = 'farm_profile.html'; // 農業者向けのページに遷移
+    } else if (selectedRole === 'fan') {
+      window.location.href = 'fan_profile.html'; // ファン向けのページに遷移
     }
+  }
 </script>
-      </div>
-    </div>
-    <footer class="footer">
-      <div class="links"></div>
-    </footer>
-  </body>
+
+</body>
 </html>
