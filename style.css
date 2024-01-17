@@ -1,214 +1,56 @@
-/******************************************************************************
-START Glitch hello-app default styles
-
-The styles in this section do some minimal CSS resets, set default fonts and 
-colors, and handle the layout for our footer and "Remix on Glitch" button. If
-you're new to CSS they may seem a little complicated, but you can scroll down
-to this section's matching END comment to see page-specific styles.
-******************************************************************************/
-
-
-/* 
-  The style rules specify elements by type and by attributes such as class and ID
-  Each section indicates an element or elements, then lists the style properties to apply
-  See if you can cross-reference the rules in this file with the elements in index.html
-*/
-
-/* Our default values set as CSS variables */
-:root {
-  --color-bg: #006036;
-  --color-text-main: #000000;
-  --color-primary: #FFFF00;
-  --wrapper-height: 87vh;
-  --image-max-width: 300px;
-  --image-margin: 3rem;
-  --font-family: "HK Grotesk";
-  --font-family-header: "HK Grotesk";
-}
-
-/* Basic page style resets */
-
-
-* {
-  box-sizing: border-box;
-}
-[hidden] {
-  display: none !important;
-}
-.dot {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 30px; /* 例: ドットの幅を変更 */
-  height: 30px; /* 例: ドットの高さを変更 */
-  background-color: red;
-  border-radius: 50%;
-  display: none;
-}
-
-/* Import fonts */
-@font-face {
-  font-family: HK Grotesk;
-  src: url("https://cdn.glitch.me/605e2a51-d45f-4d87-a285-9410ad350515%2FHKGrotesk-Regular.otf?v=1603136326027")
-    format("opentype");
-}
-@font-face {
-  font-family: HK Grotesk;
-  font-weight: bold;
-  src: url("https://cdn.glitch.me/605e2a51-d45f-4d87-a285-9410ad350515%2FHKGrotesk-Bold.otf?v=1603136323437")
-    format("opentype");
-}
-
-/* Our remix on glitch button */
-.btn--remix {
-  font-family: HK Grotesk;
-  padding: 0.75rem 1rem;
-  font-size: 1.1rem;
-  line-height: 1rem;
-  font-weight: 500;
-  height: 2.75rem;
-  align-items: center;
-  cursor: pointer;
-  background: #FFFFFF;
-  border: 1px solid #000000;
-  box-sizing: border-box;
-  border-radius: 4px;
-  text-decoration: none;
-  color: #000;
-  white-space: nowrap;
-  margin-left: auto;
-}
-.btn--remix img {
-  margin-right: 0.5rem;
-}
-.btn--remix:hover {
-  background-color: #D0FFF1;
-}
-
-/* Navigation grid */
-.footer {
-  display: flex;
-  justify-content: space-between;
-  margin: 1rem auto 0;
-  padding: 1rem 0 0.75rem 0;
-  width: 100%;
-  flex-wrap: wrap;
-  border-top: 4px solid #fff;
-}
-
-.footer a:not(.btn--remix):link,
-a:not(.btn--remix):visited {
-  font-family: HK Grotesk;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 1.1rem;
-  color: #000;
-  text-decoration: none;
-  border-style: none;
-}
-.footer a:hover {
-  background: var(--color-primary);
-}
-
-.footer .links {
-  padding: 0.5rem 1rem 1.5rem;
-  white-space: nowrap;
-}
-
-.divider {
-  padding: 0 1rem;
-}
-/******************************************************************************
-END Glitch hello-app default styles
-******************************************************************************/
+/* styles.css */
 
 body {
-  font-family: HK Grotesk;
-  background-color: var(--color-bg);
-}
-
-/* Page structure */
-.wrapper {
-  min-height: var(--wrapper-height);
-  display: grid;
-  place-items: center;
-  margin: 0 1rem;
-}
-.content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Very light scaling for our illustration */
-.title {
-  color: #FFFFFF;
-  font-family: HK Grotesk;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 30px;
-  line-height: 105%;
+  font-family: Arial, sans-serif;
+  background-color: #006036;
   margin: 0;
+  padding: 0;
+  text-align: center;
 }
 
-/* Very light scaling for our illustration */
-.illustration {
+.selection-wrapper {
+  max-width: 600px;
+  margin: 20px auto;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+/* 農業者の方のボタンのスタイル */
+.farmer-button {
+  background-color: #D1AB14;
+  color: #ffffff;
+  border: 2px solid #000000;
+}
+
+/* 農業者以外の方のボタンのスタイル */
+.fan-button {
+  background-color: #ffffff;
+  color: #D1AB14;
+  border: 4px solid #000000; 
+}
+
+.selection-button {
+  display: inline-block;
+  margin: 10px;
+  padding: 15px 30px;
+  font-size: 16px;
+  cursor: pointer;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+}
+
+/* 画像スタイル */
+img {
   max-width: 100%;
-  max-height: var(--image-max-width);
-  margin-top: var(--image-margin);
+  height: auto;
 }
 
-/* Instructions */
-.instructions {
-  margin: 1rem auto 0;
+/* 携帯デバイス用のスタイル */
+@media (max-width: 480px) {
+  .selection-wrapper {
+    max-width: 90%;
+  }
 }
-
-/* Button - Add it from the README instructions */
-button,
-input {
-  font-family: inherit;
-  font-size: 100%;
-  background: #FFFFFF;
-  border: 1px solid #000000;
-  box-sizing: border-box;
-  border-radius: 4px;
-  padding: 0.5rem 1rem;
-  transition: 500ms;
-}
-
-/* Subheading */
-h2 {
-  color: #000000;
-}
-
-/* Interactive image */
-.illustration:active {
-  transform: translateY(5px);
-}
-
-/* Button dip
-- Toggling this class on and off will move it down and up again
-- The button transition property above determines the speed of the translate (500ms)
-*/
-.dipped {
-  transform: translateY(5px);
-}
-
-/* Links that open files in the editor */
-.fileopener {
-  cursor:pointer;
-  font-weight:bold;
-  border-bottom:3px solid var(--color-primary);
-  color: var(--color-secondary);
-}
-.fileopener:hover {
-  border-bottom:3px solid var(--color-secondary);
-}
-
-.info_vege{
-  background: #FFFFFF;
-}
-
-
