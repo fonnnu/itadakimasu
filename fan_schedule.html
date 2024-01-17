@@ -4,14 +4,13 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ファンの日程確認</title>
+  <title>ファンの日程調整</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
       background-color: #f4f4f4;
       margin: 0;
       padding: 0;
-      text-align: center;
+      font-family: Arial, sans-serif;
     }
 
     .wrapper {
@@ -28,7 +27,7 @@
       position: relative;
     }
 
-    .back-link {
+    .back-veg-link {
       position: absolute;
       top: 10px;
       left: 10px;
@@ -69,7 +68,7 @@
 
     .available {
       position: relative;
-      cursor: default;
+      cursor: pointer;
     }
 
     .dot {
@@ -77,75 +76,117 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 25px; /* 例: ドットの幅 */
-      height: 25px; /* 例: ドットの高さ */
-      background-color: transparent; /* ドットの背景色を赤に設定 */
-      border: 2px solid red; /* ドットの外側に赤い線を引いて穴を開ける */
+      width: 25px;
+      height: 25px;
+      background-color: transparent;
+      border: 2px solid red;
       border-radius: 50%;
+      display: none;
     }
   </style>
+
+  <script src="/script.js" defer></script>
 </head>
 <body>
+  <div class="wrapper">
+    <div class="content">
+      <a href="veg.html" class="back-veg-link"><h2>戻る</h2></a>
+      <h2 class="title">○○農園</h2>
+      <p>ご都合のいい日ありますか。</p>
 
-<div class="wrapper">
-  <div class="content">
-    <a href="#" class="back-link" onclick="goBack()">戻る</a>
-    <h2 class="title">農家さんの日程</h2>
-    <p>農家さんの予定が表示されます。</p>
-    <!-- カレンダー表示 -->
-    <div class="calendar" id="calendar">
-      <table>
-        <thead>
-          <tr>
-            <th>日</th>
-            <th>月</th>
-            <th>火</th>
-            <th>水</th>
-            <th>木</th>
-            <th>金</th>
-            <th>土</th>
-          </tr>
-        </thead>
-        <tbody id="calendarBody">
-        </tbody>
-      </table>
+      <!-- カレンダー表示 -->
+      <div class="calendar" id="calendar">
+        <table>
+          <thead>
+            <tr>
+              <th>日</th>
+              <th>月</th>
+              <th>火</th>
+              <th>水</th>
+              <th>木</th>
+              <th>金</th>
+              <th>土</th>
+            </tr>
+          </thead>
+          <tbody id="calendarBody">
+          </tbody>
+        </table>
+      </div>
+
+      <button id="registerButton" onclick="register()">連絡をしてみる！</button>
     </div>
   </div>
-</div>
 
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    // ここでlocalStorageから日程を取得し、表示する処理を追加
-    displayStoredDates();
-  });
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      displaySavedDates();
+    });
 
-  function goBack() {
-    window.history.back();
-  }
-
-  function displayStoredDates() {
-    var storedDates = localStorage.getItem('selectedDates');
-    if (storedDates) {
-      var selectedDates = JSON.parse(storedDates);
-      displayDates(selectedDates);
-    }
-  }
-
-  function displayDates(dates) {
-    for (var date of dates) {
-      var dayCell = document.querySelector(`td[data-day="${date}"]`);
-
-      if (dayCell) {
-        toggleDot(dayCell);
+    function displaySavedDates() {
+      var storedDates = localStorage.getItem('selectedDates');
+      if (storedDates) {
+        var selectedDates = JSON.parse(storedDates);
+        displayDates(selectedDates);
       }
     }
-  }
 
-  function toggleDot(cell) {
-    const dot = cell.querySelector('.dot');
-    dot.style.display = 'block';
-  }
-</script>
+    function displayDates(dates) {
+      for (var date of dates) {
+        var dayCell = document.querySelector(`td[data-day="${date}"]`);
 
+        if (dayCell) {
+          toggleDot(dayCell);
+        }
+      }
+    }
+
+    function toggleDot(cell) {
+      const dot = cell.querySelector('.dot');
+      dot.style.display = (dot.style.display === 'block') ? 'none' : 'block';
+    }
+
+    function register() {
+      // 登録処理を追加
+      var nextPage = 'chatting.html';
+      window.location.href = nextPage;
+    }
+
+    generateCalendar('calendarBody');
+
+    function generateCalendar(targetId) {
+      const calendarBody = document.getElementById(targetId);
+      const currentDate = new Date();
+      const currentMonth = currentDate.getMonth();
+      const daysInMonth = new Date(currentDate.getFullYear(), currentMonth + 1, 0).getDate();
+      const firstDay = new Date(currentDate.getFullYear(), currentMonth, 1).getDay();
+
+      let dayCount = 1;
+
+      for (let i = 0; i < 6; i++) {
+        const row = document.createElement('tr');
+
+        for (let j = 0; j < 7; j++) {
+          const cell = document.createElement('td');
+          if ((i === 0 && j < firstDay) || dayCount > daysInMonth) {
+            cell.textContent = '';
+          } else {
+            cell.textContent = dayCount;
+            cell.classList.add('available');
+            cell.addEventListener('click', function () {
+              toggleDot(cell);
+            });
+            dayCount++;
+          }
+
+          const dot = document.createElement('div');
+          dot.classList.add('dot');
+          cell.appendChild(dot);
+
+          row.appendChild(cell);
+        }
+        calendarBody.appendChild(row);
+      }
+    }
+  </script>
 </body>
 </html>
