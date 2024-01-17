@@ -3,8 +3,8 @@
 body {
   font-family: Arial, sans-serif;
   background-color: #006036;
-  margin: 0;
-  padding: 0;
+/*   margin: 10;
+  padding: 0; */
   text-align: center;
 }
 
@@ -26,6 +26,7 @@ body {
   border: 1px solid  #ffffff;
   box-shadow: 0 0 5px 1px rgba(0,0,0,0.5);
   font-weight: bold;
+
 }
 
 /* 農業者以外の方のボタンのスタイル */
