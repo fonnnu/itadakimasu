@@ -123,9 +123,9 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 20px; /* 例: ドットの幅 */
-  height: 20px; /* 例: ドットの高さ */
-  background-color: white; /* ドットの背景色を白に設定 */
+  width: 25px; /* 例: ドットの幅 */
+  height: 25px; /* 例: ドットの高さ */
+  background-color: transparent; /* ドットの背景色を白に設定 */
   border: 2px solid red; /* ドットの外側に赤い線を引いて穴を開ける */
   border-radius: 50%;
   display: none;
@@ -135,41 +135,6 @@
 </head>
 <body>
 
-<!-- veg.html -->
-<!-- <div class="wrapper">
-  <div class="content">
-    <a href="#" class="back-link" onclick="goBack()">戻る</a>
-    <h2 class="title">どの野菜を育てていますか。</h2>
-    <p>写真を押して選んでください。</p>
-    <!-- 写真ギャラリー -->
-<!--     <div class="gallery" id="gallery">
-      <!-- Add vegetable entries here -->
-<!--     </div> -->
-    <!-- ページC -->
-<!--     <div id="pageC">
-      <h2 id="selectedPhotoTag"></h2> -->
-<!--       <button id="nextButton" onclick="showNextPage('occup.html')">次へ</button>
-    </div> --> -->
-<!--   </div> -->
-<!-- </div> --> -->
-
-<!-- occup.html -->
-<!-- <div class="wrapper">
-  <div class="content">
-    <a href="#" class="back-link" onclick="goBack()">戻る</a>
-    <h2 class="title">業務種類は何ですか</h2>
-    <p>写真を押して選んでください。</p> -->
-    <!-- 写真ギャラリー -->
-<!--     <div class="gallery" id="gallery">
-<!--       <!-- Add occupation entries here -->
-<!--     </div> --> -->
-    <!-- ページC -->
-<!--     <div id="pageC">
-      <h2 id="selectedPhotoTag"></h2>
-      <button id="nextButton" onclick="showNextPage('schedule.html')">次へ</button>
-    </div> --> -->
-<!--   </div>
-</div> -->
 
 <!-- schedule.html -->
 <div class="wrapper">
@@ -195,11 +160,35 @@
         </tbody>
       </table>
     </div>
+    <button id="registerButton" onclick="register()">登録</button>
   </div>
 </div>
 
 
+
 <script>
+    function register() {
+    // ここで日程の登録処理を行う（例: ローカルストレージへ保存）
+    var selectedDates = /* ここに日程の取得処理 */;
+
+    // ローカルストレージに保存
+    localStorage.setItem('selectedDates', JSON.stringify(selectedDates));
+
+   
+    window.location.href = 'register.html';
+  }
+//   // 登録ボタンがクリックされたときの処理
+//   function register() {
+//     // ここに登録処理を追加
+
+//     // 遷移先のURL
+//     var nextPage = 'register.html';
+
+//     // 遷移
+//     window.location.href = nextPage;
+//   }
+
+  // 以下、既存のコードが続く...
   
   document.addEventListener('DOMContentLoaded', function () {
     generateCalendar('calendarBody');
@@ -266,9 +255,7 @@
       calendarBody.appendChild(row);
     }
   }
-  
 </script>
-
 </body>
 </html>
 

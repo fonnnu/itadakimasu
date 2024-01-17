@@ -1,0 +1,19 @@
+<!-- fan_schedule.html -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // ローカルストレージから保存された日程を取得
+    var storedDates = localStorage.getItem('selectedDates');
+    if (storedDates) {
+      // 取得できた場合はJSONパースして日程を取得
+      var selectedDates = JSON.parse(storedDates);
+
+      // ここで取得した日程を表示する処理を実行
+      displayDates(selectedDates);
+    }
+  });
+
+  function displayDates(dates) {
+    // ここで日程の表示処理を行う
+    // 例えば、HTMLの特定の要素に日程を表示するなど
+  }
+</script>
