@@ -10,13 +10,18 @@ body {
 
 .selection-wrapper {
   max-width: 600px;
-  margin: 20px auto;
+  margin-top: 20px auto;
   background-color: #ffffff;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  padding: 25px;
+  padding: 45px;
+  
   
 }
+/* styles.css */
+
+/* ... その他のスタイル ... */
+
 
 
 /* 農業者の方のボタンのスタイル */
@@ -26,6 +31,7 @@ body {
   border: 1px solid  #ffffff;
   box-shadow: 0 0 5px 1px rgba(0,0,0,0.5);
   font-weight: bold;
+  margin-bottom: 20px; /* ボタンの下に20pxのマージンを追加 */
 
 }
 
@@ -37,6 +43,7 @@ body {
   border: 1px solid #D1AB14;
   box-shadow: 0 0 5px 1px rgba(0,0,0,0.5);
   font-weight: bold;
+  margin-bottom: 20px; /* ボタンの下に20pxのマージンを追加 */
 }
 
 .selection-button {
