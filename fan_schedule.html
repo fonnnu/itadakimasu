@@ -143,6 +143,10 @@
         displayDates(selectedDates);
       }
     }
+      function toggleDot(cell) {
+    const dot = cell.querySelector('.dot');
+    dot.style.display = (dot.style.display === 'block') ? 'none' : 'block';
+  }
 
     function displayDates(dates) {
       for (var date of dates) {
