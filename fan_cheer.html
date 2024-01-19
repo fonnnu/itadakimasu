@@ -1,7 +1,72 @@
-<p>農家さんの活動をシェアする</p>
-<p>寄付する</p>
-<ul>
-  <li>種代</li>
-  <li>ガソリン代</li>
-  <li>いつもありがとう</li>
-</ul>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>投げ銭選択</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      margin: 10px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>投げ銭選択</h2>
+    <p>以下から金額を選択してください：</p>
+    <button class="button" id="option1">¥100</button>
+    <button class="button" id="option2">¥500</button>
+    <button class="button" id="option3">¥1000</button>
+    <p id="totalAmount">現在の合計金額: ¥0</p>
+  </div>
+
+  <script>
+    // 初期合計金額
+    var totalAmount = 0;
+
+    // 各選択肢のボタンにイベントリスナーを追加
+    document.getElementById('option1').addEventListener('click', function () {
+      totalAmount += 100;
+      updateTotalAmount();
+    });
+
+    document.getElementById('option2').addEventListener('click', function () {
+      totalAmount += 500;
+      updateTotalAmount();
+    });
+
+    document.getElementById('option3').addEventListener('click', function () {
+      totalAmount += 1000;
+      updateTotalAmount();
+    });
+
+    // 合計金額を更新する関数
+    function updateTotalAmount() {
+      var totalAmountElement = document.getElementById('totalAmount');
+      totalAmountElement.textContent = '現在の合計金額: ¥' + totalAmount;
+    }
+  </script>
+</body>
+</html>
