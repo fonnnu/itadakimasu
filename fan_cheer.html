@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>投げ銭選択</title>
+  <title>応援</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -34,11 +34,15 @@
 </head>
 <body>
   <div class="container">
-    <h2>投げ銭選択</h2>
-    <p>以下から金額を選択してください：</p>
-    <button class="button" id="option1">¥100</button>
-    <button class="button" id="option2">¥500</button>
-    <button class="button" id="option3">¥1000</button>
+    <h2>応援メッセージを送信する</h2>
+    <p>以下から選択してください：</p>
+    <button class="button" id="option1">¥0</button>
+    <button class="button" id="option2">¥100</button>
+    <button class="button" id="option3">¥500</button>
+    <button class="button" id="option4">¥1000</button>
+    
+    <input type="number" id="customAmount" placeholder="金額を入力">
+    <button class="button" id="customOption">カスタム金額を追加</button>
     <p id="totalAmount">現在の合計金額: ¥0</p>
   </div>
 
@@ -47,19 +51,30 @@
     var totalAmount = 0;
 
     // 各選択肢のボタンにイベントリスナーを追加
-    document.getElementById('option1').addEventListener('click', function () {
+    document.getElementById('option2').addEventListener('click', function () {
       totalAmount += 100;
       updateTotalAmount();
     });
 
-    document.getElementById('option2').addEventListener('click', function () {
+    document.getElementById('option3').addEventListener('click', function () {
       totalAmount += 500;
       updateTotalAmount();
     });
 
-    document.getElementById('option3').addEventListener('click', function () {
+    document.getElementById('option4').addEventListener('click', function () {
       totalAmount += 1000;
       updateTotalAmount();
+    });
+
+    // カスタム金額を追加するボタンにイベントリスナーを追加
+    document.getElementById('customOption').addEventListener('click', function () {
+      var customAmount = parseInt(document.getElementById('customAmount').value);
+      if (!isNaN(customAmount)) {
+        totalAmount += customAmount;
+        updateTotalAmount();
+        // 入力欄をクリア
+        document.getElementById('customAmount').value = '';
+      }
     });
 
     // 合計金額を更新する関数
