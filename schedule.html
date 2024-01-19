@@ -167,11 +167,13 @@
 
 
 <script>
-  
+
   // 登録ボタンがクリックされたときの処理
   function register() {
     // ここに登録処理を追加
-
+　　var infoToSend = "登録された情報"; // fan.schedule.htmlに送る情報をここで用意
+      // fan.schedule.htmlに情報を送信
+  　window.location.href = 'fan.schedule.html?info=' + encodeURIComponent(infoToSend);
     // 遷移先のURL
     var nextPage = 'confirm.html';
 

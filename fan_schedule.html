@@ -83,6 +83,10 @@
       border-radius: 50%;
       display: none;
     }
+    
+    #infoContainer {
+      margin-top: 20px;
+    }
   </style>
 
   <script src="/script.js" defer></script>
@@ -93,18 +97,15 @@
       <a href="index.html" class="back-index-link"><h2>戻る</h2></a>
       <h2 class="title">○○農園</h2>
       <p>ご都合のいい日ありますか。</p>
-  <div id="infoContainer">
-  <!-- ここに情報が表示される -->
-  </div>
 
-<!--       <!-- カレンダー表示 -->
-<!--       <div class="calendar" id="calendar">
+      <!-- カレンダー表示 -->
+      <div class="calendar" id="calendar">
         <table>
           <thead>
             <tr>
               <th>日</th>
-              <th>月</th> -->
-<!--               <th>火</th>
+              <th>月</th>
+              <th>火</th>
               <th>水</th>
               <th>木</th>
               <th>金</th>
@@ -114,10 +115,13 @@
           <tbody id="calendarBody">
           </tbody>
         </table>
-<!--       </div> --> 
+      </div>
 
       <button id="registerButton" onclick="register()">連絡をしてみる！</button>
-       <button id="cheerButton" onclick="register()">応援する！</button>
+      <button id="cheerButton" onclick="register()">応援する！</button>
+      
+      <!-- ここに情報が表示される -->
+      <div id="infoContainer"></div>
     </div>
   </div>
 
@@ -192,12 +196,20 @@
       }
     }
    
-  function displayInfo(info) {
-    var infoContainer = document.getElementById('infoContainer');
-    infoContainer.innerHTML = info;
-  }
+    function displayInfo(info) {
+      var infoContainer = document.getElementById('infoContainer');
+      infoContainer.innerHTML = info;
+    }
+    
+    // URLパラメーターから情報を取得
+    var urlParams = new URLSearchParams(window.location.search);
+    var info = urlParams.get('info');
 
-
+    // 取得した情報を表示
+    if (info) {
+      displayInfo(info);
+    }
+    
   </script>
 </body>
 </html>
