@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>農家さんへのギフト</title>
+  <title>応援</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -31,69 +31,88 @@
       cursor: pointer;
     }
 
-    #dialogBackground {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
+    textarea {
       width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
-      z-index: 1;
-    }
-
-    #dialogBox {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background-color: #fff;
-      padding: 20px;
-      border-radius: 5px;
-      z-index: 2;
+      max-width: 400px;
+      height: 100px;
+      resize: vertical;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h2>農家さんへのギフトを検討していますか？</h2>
-    <button class="button" id="openDialog">YES</button>
-    <button class="button" id="noGift">NO</button>
-  </div>
-
-  <div id="dialogBackground">
-    <div id="dialogBox">
-      <p>ギフト金額を入力してください：</p>
-      <input type="number" id="customGiftAmount" placeholder="金額を入力">
-      <button class="button" id="sendCustomGift">送信</button>
-      <button class="button" id="cancelCustomGift">キャンセル</button>
-    </div>
+    <h2>応援メッセージを送信する</h2>
+    <p>メッセージを入力してください：</p>
+    <textarea id="message" placeholder="メッセージを入力"></textarea>
+    <input type="number" id="customGiftAmount" placeholder="金額を入力">
+    <button class="button" id="sendCustomGift">送信</button>
+    
+    <button class="button" id="option1">¥0</button>
+    <button class="button" id="option2">¥100</button>
+    <button class="button" id="option3">¥500</button>
+    <button class="button" id="option4">¥1000</button>
+    <p>または、金額を入力してください：</p>
+    <input type="number" id="customAmount" placeholder="金額を入力">
+    <button class="button" id="customOption">カスタム金額を追加</button>
+    <p id="totalAmount">現在の合計金額: ¥0</p>
+    
+    
   </div>
 
   <script>
-    var customGiftAmount;
-    
-    document.getElementById('openDialog').addEventListener('click', function () {
-      document.getElementById('dialogBackground').style.display = 'block';
+    // 初期合計金額
+    var totalAmount = 0;
+
+    // 各選択肢のボタンにイベントリスナーを追加
+    document.getElementById('option2').addEventListener('click', function () {
+      totalAmount += 100;
+      updateTotalAmount();
     });
 
-    document.getElementById('noGift').addEventListener('click', function () {
-      alert("NOがクリックされました。");
+    document.getElementById('option3').addEventListener('click', function () {
+      totalAmount += 500;
+      updateTotalAmount();
     });
 
+    document.getElementById('option4').addEventListener('click', function () {
+      totalAmount += 1000;
+      updateTotalAmount();
+    });
+
+    // カスタム金額を追加するボタンにイベントリスナーを追加
+    document.getElementById('customOption').addEventListener('click', function () {
+      var customAmount = parseInt(document.getElementById('customAmount').value);
+      if (!isNaN(customAmount)) {
+        totalAmount += customAmount;
+        updateTotalAmount();
+        // 入力欄をクリア
+        document.getElementById('customAmount').value = '';
+      }
+    });
+
+    // リセットボタンにイベントリスナーを追加
+    document.getElementById('resetButton').addEventListener('click', function () {
+      totalAmount = 0;
+      updateTotalAmount();
+    });
+
+    // カスタム金額とメッセージを送信するボタンにイベントリスナーを追加
     document.getElementById('sendCustomGift').addEventListener('click', function () {
-      customGiftAmount = parseInt(document.getElementById('customGiftAmount').value);
+      var customGiftAmount = parseInt(document.getElementById('customGiftAmount').value);
+      var message = document.getElementById('message').value;
       if (!isNaN(customGiftAmount)) {
-        alert('ギフト金額: ¥' + customGiftAmount);
-        document.getElementById('dialogBackground').style.display = 'none';
+        // ここでカスタム金額とメッセージを送信する処理を追加できます
+        alert('メッセージ: ' + message + '\nギフト金額: ¥' + customGiftAmount);
       } else {
         alert('金額を入力してください。');
       }
     });
 
-    document.getElementById('cancelCustomGift').addEventListener('click', function () {
-      document.getElementById('dialogBackground').style.display = 'none';
-    });
+    // 合計金額を更新する関数
+    function updateTotalAmount() {
+      var totalAmountElement = document.getElementById('totalAmount');
+      totalAmountElement.textContent = '現在の合計金額: ¥' + totalAmount;
+    }
   </script>
 </body>
 </html>
