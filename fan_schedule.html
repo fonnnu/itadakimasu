@@ -98,24 +98,30 @@
       <h2 class="title">○○農園</h2>
       <p>ご都合のいい日ありますか。</p>
 
-      <!-- カレンダー表示 -->
-      <div class="calendar" id="calendar">
-        <table>
-          <thead>
-            <tr>
-              <th>日</th>
-              <th>月</th>
-              <th>火</th>
-              <th>水</th>
-              <th>木</th>
-              <th>金</th>
-              <th>土</th>
-            </tr>
-          </thead>
-          <tbody id="calendarBody">
-          </tbody>
-        </table>
-      </div>
+     <!-- カレンダー表示 -->
+<div class="calendar" id="calendar">
+  <table>
+    <thead>
+      <tr>
+        <th>日</th>
+        <th>月</th>
+        <th>火</th>
+        <th>水</th>
+        <th>木</th>
+        <th>金</th>
+        <th>土</th>
+      </tr>
+    </thead>
+    <tbody id="calendarBody">
+      <tr>
+        
+     
+      </tr>
+      <!-- 他の週の日付セルも同様に追加 -->
+    </tbody>
+  </table>
+</div>
+
 
       <button id="registerButton" onclick="register()">連絡をしてみる！</button>
       <button id="cheerButton" onclick="register()">応援する！</button>
@@ -148,10 +154,7 @@
       }
     }
 
-    function toggleDot(cell) {
-      const dot = cell.querySelector('.dot');
-      dot.style.display = (dot.style.display === 'block') ? 'none' : 'block';
-    }
+
 
     function register() {
       // 登録処理を追加
