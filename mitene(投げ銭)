@@ -89,7 +89,7 @@
       customGiftMessage = document.getElementById('customGiftMessage').value;
 
       if (!isNaN(customGiftAmount)) {
-        alert('ギフト金額: ¥' + customGiftAmount + '\nメッセージ: ' + customGiftMessage);
+        alert('ギフト金額: ¥' + customGiftAmount : ' + customGiftMessage);
         document.getElementById('dialogBackground').style.display = 'none';
       } else {
         alert('金額を入力してください。');

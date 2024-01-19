@@ -18,6 +18,11 @@
 
     .container {
       text-align: center;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+      max-width: 90%; /* コンテナの幅を調整 */
     }
 
     .button {
@@ -29,13 +34,65 @@
       border: none;
       border-radius: 5px;
       cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .button:hover {
+      background-color: #0056b3;
     }
 
     textarea {
       width: 100%;
-      max-width: 400px;
-      height: 100px;
+      height: 120px;
       resize: vertical;
+      margin: 10px 0;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    input[type="number"] {
+      width: 100%;
+      height: 40px;
+      margin: 10px 0;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    #totalAmount {
+      font-weight: bold;
+      font-size: 18px;
+      margin-top: 10px;
+    }
+
+    /* 携帯サイズに対するメディアクエリ */
+    @media (max-width: 768px) {
+      .container {
+        padding: 10px; /* 横幅が狭い場合、パディングを減らす */
+      }
+
+      .button {
+        padding: 8px 16px; /* ボタンのパディングを調整 */
+      }
+
+      textarea {
+        height: 100px; /* テキストエリアの高さを調整 */
+      }
+    }
+
+    /* カスタムポップアップウィンドウのスタイル */
+    #customPopup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+      z-index: 3;
     }
   </style>
 </head>
@@ -45,74 +102,54 @@
     <p>メッセージを入力してください：</p>
     <textarea id="message" placeholder="メッセージを入力"></textarea>
     <input type="number" id="customGiftAmount" placeholder="金額を入力">
-    <button class="button" id="sendCustomGift">送信</button>
-    
-    <button class="button" id="option1">¥0</button>
-    <button class="button" id="option2">¥100</button>
-    <button class="button" id="option3">¥500</button>
-    <button class="button" id="option4">¥1000</button>
-    <p>または、金額を入力してください：</p>
-    <input type="number" id="customAmount" placeholder="金額を入力">
-    <button class="button" id="customOption">カスタム金額を追加</button>
-    <p id="totalAmount">現在の合計金額: ¥0</p>
-    
-    
+    <button class="button" id="sendCustomGift">決定</button>
+    <button class="button" id="resetButton">リセット</button>
+  </div>
+
+  <div id="customPopup">
+    <p id="popupContent"></p>
+    <button class="button" id="closePopup">キャンセル</button>
   </div>
 
   <script>
-    // 初期合計金額
-    var totalAmount = 0;
+    // カスタムポップアップウィンドウを表示する関数
+    function showPopup(content) {
+      var popup = document.getElementById('customPopup');
+      var popupContent = document.getElementById('popupContent');
+      popupContent.innerHTML = content;
+      popup.style.display = 'block';
+    }
 
-    // 各選択肢のボタンにイベントリスナーを追加
-    document.getElementById('option2').addEventListener('click', function () {
-      totalAmount += 100;
-      updateTotalAmount();
-    });
+    // カスタムポップアップウィンドウを閉じる関数
+    function closePopup() {
+      var popup = document.getElementById('customPopup');
+      popup.style.display = 'none';
+    }
 
-    document.getElementById('option3').addEventListener('click', function () {
-      totalAmount += 500;
-      updateTotalAmount();
-    });
+    // ギフト金額を送信するボタンにイベントリスナーを追加
+    document.getElementById('sendCustomGift').addEventListener('click', function () {
+      var customGiftAmount = parseInt(document.getElementById('customGiftAmount').value);
+      var message = document.getElementById('message').value;
 
-    document.getElementById('option4').addEventListener('click', function () {
-      totalAmount += 1000;
-      updateTotalAmount();
-    });
-
-    // カスタム金額を追加するボタンにイベントリスナーを追加
-    document.getElementById('customOption').addEventListener('click', function () {
-      var customAmount = parseInt(document.getElementById('customAmount').value);
-      if (!isNaN(customAmount)) {
-        totalAmount += customAmount;
-        updateTotalAmount();
-        // 入力欄をクリア
-        document.getElementById('customAmount').value = '';
+      if (!isNaN(customGiftAmount)) {
+        var content = '<strong>メッセージ:</strong> ' + message + '<br><strong>ギフト金額:</strong> ¥' + customGiftAmount;
+        showPopup(content);
+      } else {
+        showPopup('金額を入力してください。');
       }
     });
 
     // リセットボタンにイベントリスナーを追加
     document.getElementById('resetButton').addEventListener('click', function () {
-      totalAmount = 0;
-      updateTotalAmount();
+      // 合計金額と入力欄をリセット
+      document.getElementById('message').value = '';
+      document.getElementById('customGiftAmount').value = '';
     });
 
-    // カスタム金額とメッセージを送信するボタンにイベントリスナーを追加
-    document.getElementById('sendCustomGift').addEventListener('click', function () {
-      var customGiftAmount = parseInt(document.getElementById('customGiftAmount').value);
-      var message = document.getElementById('message').value;
-      if (!isNaN(customGiftAmount)) {
-        // ここでカスタム金額とメッセージを送信する処理を追加できます
-        alert('メッセージ: ' + message + '\nギフト金額: ¥' + customGiftAmount);
-      } else {
-        alert('金額を入力してください。');
-      }
+    // カスタムポップアップウィンドウを閉じるボタンにイベントリスナーを追加
+    document.getElementById('closePopup').addEventListener('click', function () {
+      closePopup();
     });
-
-    // 合計金額を更新する関数
-    function updateTotalAmount() {
-      var totalAmountElement = document.getElementById('totalAmount');
-      totalAmountElement.textContent = '現在の合計金額: ¥' + totalAmount;
-    }
   </script>
 </body>
 </html>
