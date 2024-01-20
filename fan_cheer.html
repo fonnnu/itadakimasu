@@ -109,7 +109,7 @@
 
   <div id="customPopup">
     <p id="popupContent"></p>
-    <button class="button" id="closePopup">キャンセル</button>
+    <button class="button" id="closePopup">送信</button>
   </div>
 
   <script>
@@ -132,16 +132,19 @@
       var customGiftAmount = parseInt(document.getElementById('customGiftAmount').value);
       var message = document.getElementById('message').value;
 
-      if (!isNaN(customGiftAmount)) {
+      if (message.trim() === '' && isNaN(customGiftAmount)) {
+        showPopup('メッセージまたは金額を入力してください。');
+      } else if (!isNaN(customGiftAmount)) {
         var content = '<strong>メッセージ:</strong> ' + message + '<br><strong>ギフト金額:</strong> ¥' + customGiftAmount;
         showPopup(content);
 
         // 送信ボタンをクリックしたら完了ページに遷移
         setTimeout(function() {
-          window.location.href = '完了ページのURLをここに入力';
+          window.location.href = 'fan_confirm.html';
         }, 2000); // 2秒後に遷移する例
       } else {
-        showPopup('金額を入力してください。');
+        var content = '<strong>メッセージ:</strong> ' + message + '<br><strong>ギフト金額:</strong> 未入力';
+        showPopup(content);
       }
     });
 
