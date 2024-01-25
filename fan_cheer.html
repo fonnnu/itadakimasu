@@ -1,33 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>応援</title>
   <link rel="stylesheet" href="style.css">
- 
 </head>
 <body>
-    <div class="register-wrapper">
+  <div class="register-wrapper">
     <a href="fan_schedule.html" class="back-index_link"><h2>戻る</h2></a>
-        <div class="container">
-        <h2>応援メッセージを<br>送信する</h2>
-        <p>メッセージを入力してください：</p>
-        <textarea id="message" placeholder="メッセージを入力"></textarea>
-        <input type="number" id="customGiftAmount" placeholder="ギフトを入力">
-        <button class="button" id="sendCustomGift">送信</button>
-        <button class="button" id="resetButton">リセット</button>
-      </div></div>
+    <div class="container">
+      <h2>応援メッセージを<br>送信する</h2>
+      <p>メッセージを入力してください：</p>
+      <textarea id="message" placeholder="メッセージを入力"></textarea>
+      <input type="number" id="customGiftAmount" placeholder="ギフトを入力">
+      <button class="button" id="sendMessage">メッセージのみ送信</button>
+      <button class="button" id="sendGift">ギフトも送信</button>
+      <button class="button" id="resetButton">リセット</button>
+    </div>
+  </div>
 
-  <div id="customPopup">
+  <div id="confirmationPopup">
     <p id="popupContent"></p>
-    <button class="button" id="closePopup">送信</button>
+    <button class="button" id="confirmButton">はい</button>
+    <button class="button" id="cancelButton">いいえ</button>
   </div>
 
   <script>
+    var isSendingGift = false;
+
     // カスタムポップアップウィンドウを表示する関数
     function showPopup(content) {
-      var popup = document.getElementById('customPopup');
+      var popup = document.getElementById('confirmationPopup');
       var popupContent = document.getElementById('popupContent');
       popupContent.innerHTML = content;
       popup.style.display = 'block';
@@ -35,41 +39,58 @@
 
     // カスタムポップアップウィンドウを閉じる関数
     function closePopup() {
-      var popup = document.getElementById('customPopup');
+      var popup = document.getElementById('confirmationPopup');
       popup.style.display = 'none';
     }
 
-    // ギフト金額を送信するボタンにイベントリスナーを追加
-    document.getElementById('sendCustomGift').addEventListener('click', function () {
+    // メッセージのみの送信ボタンにイベントリスナーを追加
+    document.getElementById('sendMessage').addEventListener('click', function () {
+      var message = document.getElementById('message').value;
+
+      if (message.trim() === '') {
+        showPopup('メッセージを入力してください。');
+      } else {
+        var content = '<strong>メッセージ:</strong> ' + message;
+        showPopup(content);
+        isSendingGift = false;
+      }
+    });
+
+    // ギフトも送信ボタンにイベントリスナーを追加
+    document.getElementById('sendGift').addEventListener('click', function () {
       var customGiftAmount = parseInt(document.getElementById('customGiftAmount').value);
       var message = document.getElementById('message').value;
 
       if (message.trim() === '' && isNaN(customGiftAmount)) {
         showPopup('メッセージまたは金額を入力してください。');
-      } else if (!isNaN(customGiftAmount)) {
-        var content = '<strong>メッセージ:</strong> ' + message + '<br><strong>ギフト金額:</strong> ¥' + customGiftAmount;
-        showPopup(content);
-
-        // 送信ボタンをクリックしたら完了ページに遷移
-        setTimeout(function() {
-          window.location.href = 'fan_confirm.html';
-        }, 2000); // 2秒後に遷移する例
       } else {
-        var content = '<strong>メッセージ:</strong> ' + message + '<br><strong>ギフト金額:</strong> 未入力';
+        var content = '<strong>メッセージ:</strong> ' + message;
+        if (!isNaN(customGiftAmount)) {
+          content += '<br><strong>ギフト金額:</strong> ¥' + customGiftAmount;
+        }
         showPopup(content);
+        isSendingGift = true;
       }
+    });
+
+    // はいボタンにイベントリスナーを追加
+    document.getElementById('confirmButton').addEventListener('click', function () {
+      closePopup();
+      if (isSendingGift) {
+        window.location.href = 'fan_confirm.html';
+      }
+    });
+
+    // いいえボタンにイベントリスナーを追加
+    document.getElementById('cancelButton').addEventListener('click', function () {
+      closePopup();
     });
 
     // リセットボタンにイベントリスナーを追加
     document.getElementById('resetButton').addEventListener('click', function () {
-      // 合計金額と入力欄をリセット
+      // メッセージとギフト金額の入力欄をリセット
       document.getElementById('message').value = '';
       document.getElementById('customGiftAmount').value = '';
-    });
-
-    // カスタムポップアップウィンドウを閉じるボタンにイベントリスナーを追加
-    document.getElementById('closePopup').addEventListener('click', function () {
-      closePopup();
     });
   </script>
 </body>
