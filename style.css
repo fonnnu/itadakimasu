@@ -3,12 +3,11 @@
 body {
   font-family: Arial, sans-serif;
   background-color: #006036;
-/*   margin: 10;
-  padding: 0; */
   text-align: center;
   font-family: Arial, sans-serif;
   margin-top: 23px;
   padding: 0;
+  
 }
 
 .selection-wrapper {
@@ -129,7 +128,10 @@ img {
   font-weight: bold;
   text-align: left;
   font-size: 14px;
-  display: inline-block; /*ブロック要素として表示*/
-  
-  
+ 
 }
+
+ .footer {
+      text-align: center;
+      margin-top: 20px;
+    }
