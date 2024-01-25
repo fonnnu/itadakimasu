@@ -66,6 +66,11 @@ button[type="submit"]{
   border-radius: 6px;
   padding: 10px;
   font-size: 20px;
+  color: #ffffff;
+  border: 1px solid  #ffffff;
+  box-shadow: 0 0 5px 1px rgba(0,0,0,0.5);
+  font-weight: bold;
+  margin-bottom: 20px;
 
 }
 
@@ -116,4 +121,15 @@ img {
   .selection-wrapper {
     max-width: 90%;
   }
+}
+
+.back-index_link{
+  text-decoration: none;
+  color: #555555;
+  font-weight: bold;
+  text-align: left;
+  font-size: 14px;
+  display: inline-block; /*ブロック要素として表示*/
+  
+  
 }
