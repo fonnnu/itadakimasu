@@ -16,8 +16,8 @@ body {
   background-color: #ffffff;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  padding: 45px;
-  
+  padding: 30px;
+  font-size: 18px;
   
 }
 
@@ -80,7 +80,6 @@ button[type="submit"]{
   border: 1px solid  #ffffff;
   box-shadow: 0 0 5px 1px rgba(0,0,0,0.5);
   font-weight: bold;
-  margin-bottom: 20px; /* ボタンの下に20pxのマージンを追加 */
 
 }
 
@@ -92,7 +91,6 @@ button[type="submit"]{
   border: 1px solid #D1AB14;
   box-shadow: 0 0 5px 1px rgba(0,0,0,0.5);
   font-weight: bold;
-  margin-bottom: 20px; /* ボタンの下に20pxのマージンを追加 */
 }
 
 .selection-button {
@@ -135,3 +133,15 @@ img {
       text-align: center;
       margin-top: 20px;
     }
+
+.photos_wrapper{
+    background-color: #ffffff;
+    border-radius: 10px;
+    
+/*       max-width: 600px;
+      margin: 20px auto;   
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+}
+.photos_content{
+   padding: 20px;
+}
