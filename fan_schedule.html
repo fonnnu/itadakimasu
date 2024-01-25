@@ -6,7 +6,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ファンの日程調整</title>
-  <link rel="stylesheet" href="styyle.css">
+  <link rel="stylesheet" href="style.css">
   <style>
 /*     body {
       background-color: #f4f4f4;
@@ -93,6 +93,7 @@
 
   <script src="/script.js" defer></script>
 </head>
+  
 <body>
   <div class="profile_wrapper">
     <div class="profile_content">
@@ -101,21 +102,21 @@
       <p>ご都合のいい日ありますか。</p>
 
      <!-- カレンダー表示 -->
-<div class="calendar" id="calendar">
-  <table>
-    <thead>
-      <tr>
-        <th>日</th>
-        <th>月</th>
-        <th>火</th>
-        <th>水</th>
-        <th>木</th>
-        <th>金</th>
-        <th>土</th>
-      </tr>
-    </thead>
-    <tbody id="calendarBody">
-      <tr>
+    <div class="calendar" id="calendar">
+      <table>
+        <thead>
+          <tr>
+            <th>日</th>
+            <th>月</th>
+            <th>火</th>
+            <th>水</th>
+            <th>木</th>
+            <th>金</th>
+            <th>土</th>
+          </tr>
+        </thead>
+        <tbody id="calendarBody">
+        <tr>
         
      
       </tr>
@@ -124,9 +125,9 @@
   </table>
 </div>
 
-
-    <button id="registerButton" onclick="redirectToChatting()" style="width: 160px; height: 60px; font-size: 18px;">連絡する</button>
     <button id="cheerButton" onclick="redirectToPresent()" style="width: 150px; height: 60px; font-size: 18px;">応援する</button>
+    <button id="registerButton" onclick="redirectToChatting()" style="width: 160px; height: 60px; font-size: 18px;">連絡する</button>
+ 
   
       
       <!-- ここに情報が表示される -->
