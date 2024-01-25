@@ -142,6 +142,38 @@ img {
       margin: 20px auto;   
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
 }
+
 .photos_content{
-   padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 20px;
 }
+
+.gallery{
+  display:flex;
+  flex-wrap: wrap;/*収まらない場合折り返す*/
+  justify-content: space-around;/*子要素間に均等なスペースが追加*/
+  
+}
+
+.photo img {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+#nextButton {
+      padding: 12px;
+      background-color: #D1AB14;
+      color: #ffffff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      display: none;
+      margin-top: 10px;
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+    }
