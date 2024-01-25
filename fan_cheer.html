@@ -53,20 +53,9 @@
       border-radius: 5px;
     }
 
-    input[type="number"] {
-      width: 100%;
-      height: 40px;
-      margin: 10px 0;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    } */
+    */
 /* 
-    #totalAmount {
-      font-weight: bold;
-      font-size: 18px;
-      margin-top: 10px;
-    } */
+ */
 
 /*     /* 携帯サイズに対するメディアクエリ */
 /*     @media (max-width: 768px) {
@@ -83,30 +72,21 @@
       }
     } */
  
-    /* カスタムポップアップウィンドウのスタイル */
-/*     #customPopup {
-      display: none;
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background-color: #fff;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-      z-index: 3;
-    } */
+    
+/*     */
   </style>
 </head>
 <body>
-  <div class="container">
-    <h2>応援メッセージを送信する</h2>
-    <p>メッセージを入力してください：</p>
-    <textarea id="message" placeholder="メッセージを入力"></textarea>
-    <input type="number" id="customGiftAmount" placeholder="金額を入力">
-    <button class="button" id="sendCustomGift">送信</button>
-    <button class="button" id="resetButton">リセット</button>
-  </div>
+    <div class="register-wrapper">
+    <a href="fan_schedule.html" class="back-index_link"><h2>戻る</h2></a>
+        <div class="container">
+        <h2>応援メッセージを<br>送信する</h2>
+        <p>メッセージを入力してください：</p>
+        <textarea id="message" placeholder="メッセージを入力"></textarea>
+        <input type="number" id="customGiftAmount" placeholder="金額を入力">
+        <button class="button" id="sendCustomGift">送信</button>
+        <button class="button" id="resetButton">リセット</button>
+      </div></div>
 
   <div id="customPopup">
     <p id="popupContent"></p>
