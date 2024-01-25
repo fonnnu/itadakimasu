@@ -220,7 +220,33 @@ th {
       color: #ffffff;
 }
 
+.dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 25px; /* 例: ドットの幅 */
+  height: 25px; /* 例: ドットの高さ */
+  background-color: transparent; /* ドットの背景色を白に設定 */
+  border: 2px solid red; /* ドットの外側に赤い線を引いて穴を開ける */
+  border-radius: 50%;
+  display: none;
+}
+
 .available {
       position: relative;
       cursor: pointer;
-    }
+}
+
+#Button {
+  background-color: #D1AB14; /* 背景色 */
+  color: #ffffff; /* テキスト色 */
+  border: none; /* ボーダーなし */
+  border-radius: 4px; /* 角丸 */
+  padding: 10px 20px; /* パディング */
+  font-size: 16px; /* フォントサイズ */
+}
+
+.button-container {
+  text-align: right; /* ボタンを右寄せにする */
+}
