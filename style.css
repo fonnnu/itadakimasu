@@ -44,6 +44,18 @@ form{
   flex-direction: column;
 }
 
+label{
+  margin-bottom: 8px;
+  color: #555555;
+}
+
+input{
+  padding: 10px;
+  margin-bottom: 16px;
+  border: 1px solid #aaaaaa;
+  bouder-radius: 4px;
+  
+}
 /* 農業者の方のボタンのスタイル */
 .farmer-button {
   background-color: #D1AB14;
