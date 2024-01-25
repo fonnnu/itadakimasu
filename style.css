@@ -26,7 +26,7 @@ body {
   box-sizing: border-box;
   padding: 0px;
 }
-/* styles.css */
+
 .profile_content{
   background-color: #ffffff;
   border-radius: 10px;
@@ -194,3 +194,33 @@ img {
       margin-top: 8px;
       color: #555555;
 }
+
+table{
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  background-color: #ffffff;
+  margin: 20px auto;
+}
+
+.calender{
+  max-width: 600px;
+  
+  
+}
+
+th, td {
+      border: 1px solid #dddddd;
+      text-align: center;
+      padding: 10px;
+}
+th {
+      background-color: #D1AB14;
+      color: #ffffff;
+}
+
+.available {
+      position: relative;
+      cursor: pointer;
+    }

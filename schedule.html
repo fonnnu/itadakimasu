@@ -4,30 +4,31 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>野菜・業務選択とスケジュール</title>
+  <link rel="stylesheet" href="style.css">
   <style>
-    body {
+/*     body {
       font-family: Arial, sans-serif;
       background-color: #f4f4f4;
       margin: 0;
       padding: 0;
       text-align: center;
-    }
+    } */
 
-    .wrapper {
+/*     .wrapper {
       max-width: 600px;
       margin: 20px auto;
       background-color: #ffffff;
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
+    } */
 
-    .content {
+/*     .content {
       padding: 20px;
       text-align: center;
       position: relative;
     }
-
-    .back-link {
+ */
+/*     .back-link {
       position: absolute;
       top: 10px;
       left: 10px;
@@ -40,16 +41,16 @@
       color: #333333;
       margin-bottom: 10px;
       font-size: 24px;
-    }
+    } */
 
-    .gallery {
+/*     .gallery {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-around;
       margin-top: 20px;
-    }
+    } */
 
-    .photo {
+/*     .photo {
       flex-basis: calc(50% - 20px);
       margin: 10px;
       text-align: center;
@@ -100,9 +101,9 @@
     table {
       width: 100%;
       border-collapse: collapse;
-    }
+    } */
 
-    th, td {
+/*     th, td {
       border: 1px solid #dddddd;
       text-align: center;
       padding: 10px;
@@ -129,7 +130,7 @@
   border: 2px solid red; /* ドットの外側に赤い線を引いて穴を開ける */
   border-radius: 50%;
   display: none;
-}
+} */
 
   </style>
 </head>
@@ -137,10 +138,12 @@
 
 
 <!-- schedule.html -->
-<div class="wrapper">
-  <div class="content">
-    <a href="#" class="back-link" onclick="goBack()">戻る</a>
-    <h2 class="title">お手伝いが必要な日は、いつですか。</h2>
+<div class="profile_wrapper">
+  <div class="profile_content">
+    
+    <a href="#" class="back-index_link" onclick="goBack()">戻る</a>
+    
+    <h2 class="title">お手伝いが必要な日は、<br>いつですか。</h2>
     <p>必要な日を押してください。</p>
     <!-- カレンダー表示 -->
     <div class="calendar" id="calendar">
