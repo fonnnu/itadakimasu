@@ -7,7 +7,7 @@ body {
   padding: 0; */
   text-align: center;
   font-family: Arial, sans-serif;
-  margin: 0;
+  margin-top: 23px;
   padding: 0;
 }
 
@@ -21,10 +21,11 @@ body {
   
   
 }
+
 .profile_wrapper{
   width:100%;
   box-sizing: border-box;
-  padding: 20px;
+  padding: 0px;
 }
 /* styles.css */
 .profile_content{
@@ -47,15 +48,27 @@ form{
 label{
   margin-bottom: 8px;
   color: #555555;
+  font-size: 20px;
+  text-align: left;
 }
 
 input{
   padding: 10px;
   margin-bottom: 16px;
   border: 1px solid #aaaaaa;
-  bouder-radius: 4px;
+  border-radius: 6px;
+  font-size: 14px;
   
 }
+
+button[type="submit"]{
+  background-color: #D1AB14;
+  border-radius: 6px;
+  padding: 10px;
+  font-size: 20px;
+
+}
+
 /* 農業者の方のボタンのスタイル */
 .farmer-button {
   background-color: #D1AB14;
