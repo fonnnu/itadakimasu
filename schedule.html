@@ -45,6 +45,13 @@
 
 
 <script>
+function register() {
+  // 登録処理を追加（例：フォームから情報を取得）
+  var infoToSend = "登録された情報"; // 登録された情報を取得する処理を追加
+
+  // fan_schedule.html から schedule.html に情報を渡す
+  window.location.href = 'schedule.html?info=' + encodeURIComponent(infoToSend);
+}
   
   // 登録ボタンがクリックされたときの処理
   function register() {
