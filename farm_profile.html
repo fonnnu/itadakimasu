@@ -60,7 +60,8 @@
       <a href="index.html" class="back-index_link"><h2>戻る</h2></a>
       
       <h1 class="title">プロフィール入力（農業者）</h1>
-      <form id="profileForm" onsubmit="submitFormAndNavigate(); return false;">
+      
+      <form id="profileForm" onsubmit="submitFormAndNavigate(); return false;" action="process_form.php" method="post">
         <label for="name">名前:</label>
         <input type="text" id="name" name="name" required>
 
