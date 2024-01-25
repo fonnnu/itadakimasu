@@ -287,8 +287,8 @@ th {
 }
 
 #registerButton {
-  background-color: #ffffff;
-  color: #D1AB14;
+  background-color: #D1AB14;
+  color: #ffffff;
   border: none;
   border-radius: 4px;
   padding: 10px 20px;
@@ -298,8 +298,8 @@ th {
 }
 
 #cheerButton {
-  background-color: #D1AB14;
-  color: #ffffff;
+  background-color: #ffffff;
+  color: #D1AB14;
   border: none;
   border-radius: 4px;
   padding: 10px 20px;
