@@ -1,48 +1,114 @@
-# Hello website!
+itadakimasu
+============
 
-This is a basic HTML starter project you can build on however you like. No need to save. While you develop your site, your changes will happen ✨ immediately in the preview window. On the left you'll see the files that make up your site, including HTML, JavaScript, and CSS. You can upload assets like images or audio in `assets`. The rest is up to you and your imagination. 🦄
+日本語 / English
 
-_Last updated: 28 Feb 2023_
+—
 
-## What's in this project?
+日本語 (JP)
+------------
 
-← `README.md`: That's this file, where you can tell people what your cool website does and how you built it.
+itadakimasu は、未踏的女子発掘プロジェクト 2023 に参加した際に制作した個人プロジェクトです。農業者とファンをつなぐことを目的とした、シンプルなフロントエンド試作アプリです。
 
-← `index.html`: This is the main web page for your site. The HTML defines the structure and content of the page using _elements_. You'll see references in the HTML to the JS and CSS files. Try clicking the image in the center of the page!
+- 公開ページ: https://fonnnu.github.io/itadakimasu/
+- リポジトリ: https://github.com/fonnnu/itadakimasu
 
-← `style.css`: CSS files add styling rules to your content. The CSS applies styles to the elements in your HTML page. The style rules also make the image move when you click it.
+### 概要
 
-← `script.js`: If you're feeling fancy you can add interactivity to your site with JavaScript. The code in the JavaScript file runs when the page loads, and when the visitor clicks the button you can add using the code in the TODO.
+トップ画面で「農業者」「農業者以外（ファン）」を選択し、それぞれの流れでプロフィール入力や日程調整、応援（メッセージ・ギフト）や連絡（簡易チャット）へ進みます。すべて静的ファイルで構成されたプロトタイプで、サーバやデータベースは使用していません。
 
-Open each file and check out the comments (in gray) for more info.
+### 主な画面とフロー
 
-## Try this next 🏗️
+- `index.html`: 役割選択（農業者 / 農業者以外）
 
-Take a look in `TODO.md` for next steps you can try out in your new site!
+農業者フロー:
+- `farm_profile.html`: プロフィール入力（農業者）
+- `veg.html`: 栽培している野菜の選択
+- `occup.html`: 業務種類の選択（例: 収穫、種まき 等）
+- `schedule.html`: お手伝いが必要な日程の登録 → `confirm.html`
 
-___Want a minimal version of this project to build your own website? Check out [Blank Website](https://glitch.com/edit/#!/remix/glitch-blank-website)!___
+ファン（農業者以外）フロー:
+- `fan_profile.html`: プロフィール入力（ファン）
+- `fan_schedule.html`: 参加・訪問の都合の良い日を選択
+- 連絡する → `chatting.html`（簡易チャット）
+- 応援する → `fan_cheer.html`（メッセージと任意ギフト）→ `fan_confirm.html`
 
-## Ready to share your site?
+補助ページ:
+- `confirm.html`: 登録完了（農業者）
+- `fan_confirm.html`: 送信完了（ファン）
 
-Add these meta tags for SEO and social sharing between your page `<head></head>` tags, changing the values for your site:
+スタイル / スクリプト:
+- `style.css`: 全体のスタイル
+- `script.js`: 一部ボタン動作や画面間の簡易遷移補助
 
-```
-<link rel="canonical" href="https://glitch-hello-website.glitch.me/" />
-<meta name="description" content="A simple website, built with Glitch. Remix it to get your own."/>
-<meta name="robots" content="index,follow" />
-<meta property="og:title" content="Hello World!" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://glitch-hello-website.glitch.me/" />
-<meta property="og:description" content="A simple website, built with Glitch. Remix it to get your own."/>
-<meta property="og:image" content="https://cdn.glitch.com/605e2a51-d45f-4d87-a285-9410ad350515%2Fhello-website-social.png?v=1616712748147"/>
-<meta name="twitter:card" content="summary" />
-```
+### 使い方（ローカル）
 
-![Glitch](https://cdn.glitch.com/a9975ea6-8949-4bab-addb-8a95021dc2da%2FLogo_Color.svg?v=1602781328576)
+1. このリポジトリをクローンまたはダウンロードします。
+2. `index.html` をブラウザで開きます。
+   - もしくは簡易サーバを起動してアクセスします（例: Python 3 使用）。
+     - `python3 -m http.server 3000` を起動 → `http://localhost:3000/index.html`
 
-## You built this with Glitch!
+### 技術スタック
 
-[Glitch](https://glitch.com) is a friendly community where millions of people come together to build web apps and websites.
+- HTML / CSS / JavaScript（プレーン）
+- 画像等のアセットは一部外部 CDN を参照
+- バックエンドや DB なし（プロトタイプ）
 
-- Need more help? [Check out our Help Center](https://help.glitch.com/) for answers to any common questions.
-- Ready to make it official? [Become a paid Glitch member](https://glitch.com/pricing) to boost your app with private sharing, more storage and memory, domains and more.
+### ライセンス
+
+MIT License（`LICENSE` を参照）
+
+—
+
+English (EN)
+------------
+
+itadakimasu is a personal prototype created during the Mitou-teki Joshi Discovery Project 2023. It’s a simple front-end app that explores connecting farmers with fans/supporters.
+
+- Live site: https://fonnnu.github.io/itadakimasu/
+- Repository: https://github.com/fonnnu/itadakimasu
+
+### Overview
+
+From the landing page, users choose a role: Farmer or Fan (non-farmer). Each flow proceeds through profile input and lightweight scheduling; fans can send supportive messages (and optional gifts) or reach out via a simple chat mock. This is a static prototype—no server or database.
+
+### Key screens and flows
+
+- `index.html`: Role selection (Farmer / Fan)
+
+Farmer flow:
+- `farm_profile.html`: Farmer profile input
+- `veg.html`: Select vegetables grown
+- `occup.html`: Select task type (e.g., harvesting, sowing)
+- `schedule.html`: Choose days when help is needed → `confirm.html`
+
+Fan flow:
+- `fan_profile.html`: Fan profile input
+- `fan_schedule.html`: Choose available days to visit/help
+- Contact → `chatting.html` (simple chat mock)
+- Cheer → `fan_cheer.html` (message + optional gift) → `fan_confirm.html`
+
+Supporting pages:
+- `confirm.html`: Completion (farmer)
+- `fan_confirm.html`: Submission completed (fan)
+
+Style / Scripts:
+- `style.css`: Global styles
+- `script.js`: Small interactions and page transitions
+
+### Local usage
+
+1. Clone or download this repository.
+2. Open `index.html` in your browser.
+   - Or run a simple static server (e.g., Python 3):
+     - `python3 -m http.server 3000` then visit `http://localhost:3000/index.html`
+
+### Tech stack
+
+- Plain HTML / CSS / JavaScript
+- Some assets hosted on external CDNs
+- No backend or database (prototype)
+
+### License
+
+MIT License (see `LICENSE`)
