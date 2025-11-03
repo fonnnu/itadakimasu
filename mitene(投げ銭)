@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>農家さんへのギフト</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      margin: 10px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #dialogBackground {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+    }
+
+    #dialogBox {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      z-index: 2;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>農家さんへのギフトを検討していますか？</h2>
+    <button class="button" id="openDialog">YES</button>
+    <button class="button" id="noGift">NO</button>
+  </div>
+
+  <div id="dialogBackground">
+    <div id="dialogBox">
+      <p>ギフト金額を入力してください：</p>
+      <input type="number" id="customGiftAmount" placeholder="金額を入力">
+      <p>メッセージを入力してください：</p>
+      <textarea id="customGiftMessage" placeholder="メッセージを入力"></textarea>
+      <button class="button" id="sendCustomGift">送信</button>
+      <button class="button" id="cancelCustomGift">キャンセル</button>
+    </div>
+  </div>
+
+  <script>
+    var customGiftAmount;
+    var customGiftMessage;
+    
+    document.getElementById('openDialog').addEventListener('click', function () {
+      document.getElementById('dialogBackground').style.display = 'block';
+    });
+
+    document.getElementById('noGift').addEventListener('click', function () {
+      alert("NOがクリックされました。");
+    });
+
+    document.getElementById('sendCustomGift').addEventListener('click', function () {
+      customGiftAmount = parseInt(document.getElementById('customGiftAmount').value);
+      customGiftMessage = document.getElementById('customGiftMessage').value;
+
+      if (!isNaN(customGiftAmount)) {
+        alert('ギフト金額: ¥' + customGiftAmount : ' + customGiftMessage);
+        document.getElementById('dialogBackground').style.display = 'none';
+      } else {
+        alert('金額を入力してください。');
+      }
+    });
+
+    document.getElementById('cancelCustomGift').addEventListener('click', function () {
+      document.getElementById('dialogBackground').style.display = 'none';
+    });
+  </script>
+</body>
+</html>
